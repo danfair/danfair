@@ -1,4 +1,9 @@
 <?php
+    // register main nav menu
+    if (function_exists('register_nav_menu')) {
+            register_nav_menu('main', 'Main navigation');
+    }
+
     // load custom js
     function register_custom_script() {
         wp_enqueue_script(
