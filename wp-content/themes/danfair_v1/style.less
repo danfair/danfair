@@ -57,30 +57,35 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 
 body {
     background: @lightgray;
+    height: 1500px;
 }
 
 h1 {
     font-family: 'Dense', Helvetica, sans-serif;
     font-size: 80px;
     margin: 15px 0;
+    color: @darkgray;
 }
 
 h2 {
     font-family: 'Dense', Helvetica, sans-serif;
     font-size: 40px;
     margin: 10px 0;
+    color: @orange;
 }
 
 h3 {
     font-family: 'Dense', Helvetica, sans-serif;
     font-size: 32px;
     margin: 10px 0;
+    color: @darkgray;
 }
 
 h4 {
     font-family: 'Dense', Helvetica, sans-serif;
     font-size: 24px;
     margin: 10px 0;
+    color: @blue;
 }
 
 p {
@@ -108,8 +113,13 @@ a:hover {
     margin: 0 auto;
 }
 
+.orange-text {
+    color: @orange;
+}
 
-
+.white-text {
+    color: @white;
+}
 
 
 /*----------------------------------------*\
@@ -332,7 +342,7 @@ a:hover {
 
     .main-nav a {
         font-family: 'Dense', Helvetica, serif;
-        font-size: 32px;
+        font-size: 24px;
         text-transform: uppercase;
         color: @white;
         line-height: 70px;
@@ -393,14 +403,14 @@ a:hover {
     color: white;
     background: @darkgray url(img/hero_bg.jpg) no-repeat;
     background-size: cover;
-    height: 500px;
     text-align: center;
+    min-height: 500px;
 }
 
     .hero-area__text-container {
         width: 40%;
         margin: 0 auto;
-        padding: 140px 0;
+        padding: 125px 0;
     }
 
     .hero-area__text-container h1 {
@@ -411,6 +421,9 @@ a:hover {
         margin-bottom: 24px;
     }
 
+.portfolio {
+    padding: 4.5%;
+}
 
 
 
