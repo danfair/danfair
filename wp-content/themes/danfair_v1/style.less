@@ -7,14 +7,21 @@
     License: GNU GPL v2 (or current)
 */
 
-/* YUI 3.5.0 reset.css (http://developer.yahoo.com/yui/3/cssreset/) - http://cssreset.com */
+
+
+/*----------------------------------------*\
+    #TOOLS-SETTINGS
+\*----------------------------------------*/
+
+/* YUI 3.5.0 CSS RESET */
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
 
-/* variables */
+/* color variables */
 @darkgray: #222;
 @orange: #F60;
 @blue: #0381B3;
 @lightgray: #E1E1E1;
+@gray: #AEAEAE;
 @white: #FFF;
 
 /* mixins */
@@ -26,36 +33,60 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
     -o-transition: @property @length;
 }
 
-/* other sheets */
-@import "css/type.less";
-@import "css/color.less";
-@import "css/layout.less";
+/* local fonts */
+@font-face {
+    font-family: 'Dense';
+    src: url('dense-regular-webfont.eot');
+    src: url('dense-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dense-regular-webfont.woff') format('woff'),
+         url('dense-regular-webfont.ttf') format('truetype'),
+         url('dense-regular-webfont.svg#denseregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-/* base styles */
+
+
+
+
+
+
+/*----------------------------------------*\
+    #BASE-STYLES-HELPERS
+\*----------------------------------------*/
+
+body {
+    background: @lightgray;
+}
 
 h1 {
-    font-family: dense, Helvetica, sans-serif;
+    font-family: 'Dense', Helvetica, sans-serif;
     font-size: 80px;
+    margin: 15px 0;
 }
 
 h2 {
-    font-family: dense, Helvetica, sans-serif;
+    font-family: 'Dense', Helvetica, sans-serif;
     font-size: 40px;
+    margin: 10px 0;
 }
 
 h3 {
-    font-family: dense, Helvetica, sans-serif;
+    font-family: 'Dense', Helvetica, sans-serif;
     font-size: 32px;
+    margin: 10px 0;
 }
 
 h4 {
-    font-family: dense, Helvetica, sans-serif;
+    font-family: 'Dense', Helvetica, sans-serif;
     font-size: 24px;
+    margin: 10px 0;
 }
 
 p {
     font-family: Cabin, 'Times New Roman', serif;
     font-size: 18px;
+    margin: 8px 0;
 }
 
 a {
@@ -70,19 +101,315 @@ a:hover {
     color: darken(@blue, 25%);
 }
 
+/* spacing when browser is wide */
+.max-width-wrapper {
+    max-width: 1400px;
+    display: block;
+    margin: 0 auto;
+}
 
 
 
 
 
+/*----------------------------------------*\
+    #COMPONENTS
+\*----------------------------------------*/
+
+.btn {
+    padding: 10px 21px 10px 25px; /* account for sprite padding */
+    display: inline-block;
+    max-width: 200px;
+    text-align: center;
+}
+
+    .btn:hover {
+        color: white;
+    }
+
+    .bounce-down {
+        animation: bounceDown 1s ease-in-out infinite;
+        -webkit-animation: bounceDown 1s ease-in-out infinite;
+    }
+
+        @-webkit-keyframes bounceDown {
+            0% {
+                -webkit-transform:translateY(0px);
+            }
+            50% {
+                -webkit-transform:translateY(3px);
+            }
+            100% {
+                -webkit-transform:translateY(0px);
+            }
+        }
+
+        @-moz-keyframes bounceDown {
+            0% {
+                -moz-transform:translateY(0px);
+            }
+            50% {
+                -moz-transform:translateY(3px);
+            }
+            100% {
+                -moz-transform:translateY(0px);
+            }
+        }
+
+        @keyframes bounceDown {
+            0% {
+                -ms-transform:translateY(0px);
+                transform:translateY(0px);
+            }
+            50% {
+                -ms-transform:translateY(3px);
+                transform:translateY(3px);
+            }
+            100% {
+                -ms-transform:translateY(0px);
+                transform:translateY(0px);
+            }
+        }
+
+    .bounce-up {
+        animation: bounceUp 1s ease-in-out infinite;
+        -webkit-animation: bounceUp 1s ease-in-out infinite;
+    }
+
+        @-webkit-keyframes bounceUp {
+            0% {
+                -webkit-transform:translateY(0px);
+            }
+            50% {
+                -webkit-transform:translateY(-3px);
+            }
+            100% {
+                -webkit-transform:translateY(0px);
+            }
+        }
+
+        @-moz-keyframes bounceUp {
+            0% {
+                -moz-transform:translateY(0px);
+            }
+            50% {
+                -moz-transform:translateY(-3px);
+            }
+            100% {
+                -moz-transform:translateY(0px);
+            }
+        }
+
+        @keyframes bounceUp {
+            0% {
+                -ms-transform:translateY(0px);
+                transform:translateY(0px);
+            }
+            50% {
+                -ms-transform:translateY(-3px);
+                transform:translateY(-3px);
+            }
+            100% {
+                -ms-transform:translateY(0px);
+                transform:translateY(0px);
+            }
+        }
+
+    .bounce-right {
+        animation: bounceRight 1s ease-in-out infinite;
+        -webkit-animation: bounceRight 1s ease-in-out infinite;
+    }
+
+        @-webkit-keyframes bounceRight {
+            0% {
+                -webkit-transform:translateX(0px);
+            }
+            50% {
+                -webkit-transform:translateX(3px);
+            }
+            100% {
+                -webkit-transform:translateX(0px);
+            }
+        }
+
+        @-moz-keyframes bounceRight {
+            0% {
+                -moz-transform:translateX(0px);
+            }
+            50% {
+                -moz-transform:translateX(3px);
+            }
+            100% {
+                -moz-transform:translateX(0px);
+            }
+        }
+
+        @keyframes bounceRight {
+            0% {
+                -ms-transform:translateX(0px);
+                transform:translateX(0px);
+            }
+            50% {
+                -ms-transform:translateX(3px);
+                transform:translateX(3px);
+            }
+            100% {
+                -ms-transform:translateX(0px);
+                transform:translateX(0px);
+            }
+        }
+
+
+    .btn--orange {
+        border: @orange 2px solid;
+        color: white;
+    }
+
+    .btn--white {
+        border: white 2px solid;
+        color: white;
+    }
+
+    .btn__arrow {
+        height: 18px;
+        width: 18px;
+        float: right;
+        margin-left: 5px;
+        background: url(img/arrow_sprite.png) no-repeat;
+    }
+        .btn__arrow.white.down {
+            background-position: 0px -71px;
+        }
+        .btn__arrow.white.up {
+            background-position: 0px -94px;
+        }
+        .btn__arrow.white.right {
+            background-position: 0px -117px;
+        }
+        .btn__arrow.black.down {
+            background-position: 0px -2px;
+        }
+        .btn__arrow.black.up {
+            background-position: 0px -25px;
+        }
+        .btn__arrow.black.right {
+            background-position: 0px -48px;
+        }
+
+.df-logo {
+    display: block;
+    padding: 0px 15px;
+    border: @orange 2px solid;
+    color: @orange;
+}
+
+
+
+.main-header {
+    background: @darkgray;
+    padding:0 4.5%;
+}
+
+.main-nav {
+    height: 70px;
+    margin: 0 auto;
+}
+
+    .main-nav .df-logo {
+        float: left;
+        line-height: 42px;
+        margin-top: 12px; /* -2 for border */
+        margin-right: 15px;
+        color: @orange;
+    }
+
+    .main-nav .menu-item {
+        text-align: center;
+        display: inline-block;
+        float: left;
+        margin-right: 15px;
+    }
+
+    .main-nav a {
+        font-family: 'Dense', Helvetica, serif;
+        font-size: 32px;
+        text-transform: uppercase;
+        color: @white;
+        line-height: 70px;
+    }
+
+    .main-nav .current-menu-item a {
+        color: @gray;
+    }
+
+    .main-nav a:hover {
+        color: @orange;
+    }
+
+    .menu-menu-1-container {
+        display: inline-block;
+    }
+
+    .main-header__social-icons-list {
+        float: right;
+    }
+
+        .main-header__social-icons-list li {
+            height: 70px;
+            float: left;
+            display: block;
+        }
+
+        .social-icon {
+            display: block;
+            height: 32px;
+            width: 32px;
+            margin-top: 19px;
+            padding: 0 2px;
+        }
+
+        .social-icon.linkedin {
+            background: url(img/social_icons_sprite.png) no-repeat 0px -45px;
+        }
+
+        .social-icon.twitter {
+            background: url(img/social_icons_sprite.png) no-repeat 0px -87px;
+        }
+
+        .social-icon.github {
+            background: url(img/social_icons_sprite.png) no-repeat 0px -4px;
+        }
 
 
 
 
 
+/*----------------------------------------*\
+    #CONTENT-STYLING
+\*----------------------------------------*/
 
+.hero-area {
+    width: 100%;
+    color: white;
+    background: @darkgray url(img/hero_bg.jpg) no-repeat;
+    background-size: cover;
+    height: 500px;
+    text-align: center;
+}
 
+    .hero-area__text-container {
+        width: 40%;
+        margin: 0 auto;
+        padding: 140px 0;
+    }
 
+    .hero-area__text-container h1 {
+        margin-bottom: 0;
+    }
+
+    .hero-area__text-container p {
+        margin-bottom: 24px;
+    }
 
 
 
