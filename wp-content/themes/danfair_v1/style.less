@@ -90,7 +90,7 @@ h4 {
 
 p {
     font-family: Cabin, 'Times New Roman', serif;
-    font-size: 18px;
+    font-size: 14px;
     margin: 8px 0;
 }
 
@@ -127,15 +127,12 @@ a:hover {
 \*----------------------------------------*/
 
 .btn {
-    padding: 10px 21px 10px 25px; /* account for sprite padding */
+    padding: 10px 23px 10px 25px; /* account for sprite padding */
     display: inline-block;
     max-width: 200px;
     text-align: center;
+    font-size: 16px;
 }
-
-    .btn:hover {
-        color: white;
-    }
 
     .bounce-down {
         animation: bounceDown 1s ease-in-out infinite;
@@ -272,7 +269,20 @@ a:hover {
 
     .btn--orange {
         border: @orange 2px solid;
+        color: @darkgray;
+    }
+
+    .btn--orange:hover {
+        color: @orange;
+    }
+
+    .btn--orange-white {
+        border: @orange 2px solid;
         color: white;
+    }
+
+    .btn--orange-white:hover {
+        color: @orange;
     }
 
     .btn--white {
@@ -288,7 +298,7 @@ a:hover {
         background: url(img/arrow_sprite.png) no-repeat;
     }
         .btn__arrow.white.down {
-            background-position: 0px -71px;
+            background-position: 0px -72px;
         }
         .btn__arrow.white.up {
             background-position: 0px -94px;
@@ -303,14 +313,29 @@ a:hover {
             background-position: 0px -25px;
         }
         .btn__arrow.black.right {
-            background-position: 0px -48px;
+            background-position: 0px -49px;
         }
 
-.df-logo {
+        .btn__github-logo {
+            height: 18px;
+            width: 18px;
+            float: right;
+            margin-left: 5px;
+            background: url(img/github_black_icon.png) no-repeat;
+            background-size: cover;
+        }
+
+a.df-logo {
     display: block;
     padding: 0px 15px;
     border: @orange 2px solid;
     color: @orange;
+    line-height: 42px;
+    margin-top: 12px; /* -2 for border */
+    margin-right: 15px;
+    color: @orange;
+    font-family: 'Dense', Helvetica, sans-serif;
+    font-size: 24px;
 }
 
 
@@ -326,11 +351,9 @@ a:hover {
 }
 
     .main-nav .df-logo {
-        float: left;
         line-height: 42px;
-        margin-top: 12px; /* -2 for border */
-        margin-right: 15px;
         color: @orange;
+        float: left;
     }
 
     .main-nav .menu-item {
@@ -390,8 +413,44 @@ a:hover {
             background: url(img/social_icons_sprite.png) no-repeat 0px -4px;
         }
 
+        .social-icon.contact {
+            background: url(img/social_icons_sprite.png) no-repeat 0px -129px;
+        }
 
+.tags-list {
+    display: block;
+    width: 100%;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    padding: 5px 0;
+}
 
+    .tags-list__tag {
+        padding: 5px 10px;
+        background: @blue;
+        color: @white;
+        display: inline;
+        margin: 0 5px;
+    }
+
+    .tags-list__tag:first-child {
+        margin-left: 0;
+    }
+
+footer {
+    background: @darkgray;
+    height: 70px;
+}
+
+    footer .df-logo {
+        float: left;
+    }
+
+    #footer-text-wrapper {
+        overflow: auto;
+        height: 70px;
+        padding: 0 4.5%;
+    }
 
 
 /*----------------------------------------*\
@@ -419,12 +478,62 @@ a:hover {
 
     .hero-area__text-container p {
         margin-bottom: 24px;
+        font-size: 16px;
     }
 
 .portfolio {
-    padding: 4.5%;
+    padding: 4.5% 0 0;
+    background: @white;
 }
 
+    .portfolio__header-wrapper {
+        margin: 0 4.5%;
+    }
+
+    .portfolio h3 {
+        text-transform: uppercase;
+    }
+
+    .portfolio__project {
+        clear: both;
+        padding: 30px 4.5%;
+        overflow: auto;
+        position: relative;
+    }
+
+        .portfolio__project:nth-child(odd) {
+            background-color: @lightgray;
+        }
+
+        .portfolio__project__text {
+            float: left;
+            width: 45.25%; /* +2 for no padding-right */
+            padding: 0 2% 2% 0;
+        }
+
+        .portfolio__project__text p {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio__project__text .btn {
+            max-width: 40%;
+        }
+
+            .portfolio__project__text .btn:first-of-type {
+                margin-right: 5%;
+            }
+
+        .portfolio__project__thumbnail {
+            width: 43.25%;
+            float: right;
+            padding: 0 2%;
+        }
+
+        .portfolio__project__thumbnail img {
+           width: 100%;
+           height: 100%;
+        }
 
 
 

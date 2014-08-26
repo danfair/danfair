@@ -4,6 +4,9 @@
             register_nav_menu('main', 'Main navigation');
     }
 
+    // enable post thumbnails
+    add_theme_support('post-thumbnails'); 
+
     // load custom js
     function register_custom_script() {
         wp_enqueue_script(

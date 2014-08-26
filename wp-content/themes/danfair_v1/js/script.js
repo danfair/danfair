@@ -17,7 +17,7 @@
         }, 
         function() {
             var $arrow = $(this).find(".btn__arrow");
-            if ($arrow.hasClass("down")) {
+            if ($arrow.hasClass("down") && !$arrow.parents(".btn").hasClass("see-work-button")) {
                 $arrow.removeClass("bounce-down");
             } else if ($arrow.hasClass("up")) {
                 $arrow.removeClass("bounce-up");
@@ -33,7 +33,7 @@
         $(".hero-area").css("height", heroHeight);
 
         var heroAreaTextHeight = $(".hero-area__text-container").height();
-        $(".hero-area__text-container").css("padding-top", ((heroHeight - heroAreaTextHeight) / 2));
+        $(".hero-area__text-container").css("padding-top", ((heroHeight - heroAreaTextHeight) / 2.25));  // little higher than half way
 
         // smooth scroll on front page
         var portfolioPosition = $(".portfolio").offset();
