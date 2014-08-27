@@ -121,6 +121,10 @@ a:hover {
     color: @white;
 }
 
+.display-none {
+    display: none;
+}
+
 
 /*----------------------------------------*\
     #COMPONENTS
@@ -320,7 +324,7 @@ a:hover {
             height: 18px;
             width: 18px;
             float: right;
-            margin-left: 5px;
+            margin-left: 10px;
             background: url(img/github_black_icon.png) no-repeat;
             background-size: cover;
         }
@@ -381,6 +385,10 @@ a.df-logo {
 
     .menu-menu-1-container {
         display: inline-block;
+    }
+
+    .front-page-nav .menu-menu-1-container {
+        display: block;
     }
 
     .main-header__social-icons-list {
@@ -458,12 +466,14 @@ footer {
 \*----------------------------------------*/
 
 .hero-area {
-    width: 100%;
+    // width: 100%;
     color: white;
     background: @darkgray url(img/hero_bg.jpg) no-repeat;
     background-size: cover;
     text-align: center;
     min-height: 500px;
+    padding: 0 4.5%;
+
 }
 
     .hero-area__text-container {
@@ -478,7 +488,7 @@ footer {
 
     .hero-area__text-container p {
         margin-bottom: 24px;
-        font-size: 16px;
+        font-size: 18px;
     }
 
 .portfolio {

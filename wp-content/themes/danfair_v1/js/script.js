@@ -29,11 +29,11 @@
         // size hero area on front page
         var windowHeight = $(window).height();
         var navHeight = $(".main-nav").height();
-        var heroHeight = windowHeight - navHeight;
+        var heroHeight = (windowHeight - navHeight) + 70;
         $(".hero-area").css("height", heroHeight);
 
         var heroAreaTextHeight = $(".hero-area__text-container").height();
-        $(".hero-area__text-container").css("padding-top", ((heroHeight - heroAreaTextHeight) / 2.25));  // little higher than half way
+        $(".hero-area__text-container").css("padding-top", ((heroHeight - heroAreaTextHeight) / 2.5));  // little higher than half way
 
         // smooth scroll on front page
         var portfolioPosition = $(".portfolio").offset();
@@ -43,6 +43,12 @@
               scrollTop: $(this.hash).offset().top
             }, 250);
         });
+
+        // swap out clear nav on front page
+        if ($(".front-page-nav").length > 0) {
+            $(".main-nav").first().addClass("display-none");
+            $(".front-page-nav").removeClass("display-none");
+        }
 
     });
 })(jQuery);
