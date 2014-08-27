@@ -56,47 +56,46 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 \*----------------------------------------*/
 
 body {
-    background: @lightgray;
     height: 1500px;
 }
 
 h1 {
-    font-family: 'Dense', Helvetica, sans-serif;
+    font-family: 'Dense', Arial, sans-serif;
     font-size: 80px;
     margin: 15px 0;
     color: @darkgray;
 }
 
 h2 {
-    font-family: 'Dense', Helvetica, sans-serif;
+    font-family: 'Dense', Arial, sans-serif;
     font-size: 40px;
     margin: 10px 0;
     color: @orange;
 }
 
 h3 {
-    font-family: 'Dense', Helvetica, sans-serif;
+    font-family: 'Dense', Arial, sans-serif;
     font-size: 32px;
     margin: 10px 0;
     color: @darkgray;
 }
 
 h4 {
-    font-family: 'Dense', Helvetica, sans-serif;
+    font-family: 'Dense', Arial, sans-serif;
     font-size: 24px;
     margin: 10px 0;
     color: @blue;
 }
 
 p {
-    font-family: Cabin, 'Times New Roman', serif;
-    font-size: 14px;
+    font-family: 'Open Sans', 'Times New Roman', serif;
+    font-size: 16px;
     margin: 8px 0;
 }
 
 a {
-    font-family: Cabin, 'Times New Roman', serif;
-    font-size: 18px;
+    font-family: 'Montserrat', 'Times New Roman', serif;
+    font-size: 14px;
     color: @blue;
     text-decoration: none;
     .transition(color, .5s);
@@ -126,6 +125,11 @@ a:hover {
 }
 
 
+
+
+
+
+
 /*----------------------------------------*\
     #COMPONENTS
 \*----------------------------------------*/
@@ -135,9 +139,10 @@ a:hover {
     display: inline-block;
     max-width: 200px;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
 }
 
+    /* button animations */
     .bounce-down {
         animation: bounceDown 1s ease-in-out infinite;
         -webkit-animation: bounceDown 1s ease-in-out infinite;
@@ -270,6 +275,50 @@ a:hover {
             }
         }
 
+    // .github-pulse {
+    //     animation: githubPulse 1s ease-in-out infinite;
+    //     -webkit-animation: githubPulse 1s ease-in-out infinite;
+    // }
+
+    //     @-webkit-keyframes githubPulse {
+    //         0% {
+    //             -webkit-transform: scale(1);
+    //         }
+    //         50% {
+    //             -webkit-transform: scale(1.1);
+    //         }
+    //         100% {
+    //             -webkit-transform: scale(1);
+    //         }
+    //     }
+
+    //     @-moz-keyframes githubPulse {
+    //         0% {
+    //             -moz-transform: scale(1);
+    //         }
+    //         50% {
+    //             -moz-transform: scale(1.1);
+    //         }
+    //         100% {
+    //             -moz-transform: scale(1);
+    //         }
+    //     }
+
+    //     @keyframes githubPulse {
+    //         0% {
+    //             -ms-transform: scale(1);
+    //             transform: scale(1);
+    //         }
+    //         50% {
+    //             -ms-transform: scale(1.1);
+    //             transform: scale(1.1);
+    //         }
+    //         100% {
+    //             -ms-transform: scale(1);
+    //             transform: scale(1);
+    //         }
+    //     }
+
 
     .btn--orange {
         border: @orange 2px solid;
@@ -338,7 +387,7 @@ a.df-logo {
     margin-top: 12px; /* -2 for border */
     margin-right: 15px;
     color: @orange;
-    font-family: 'Dense', Helvetica, sans-serif;
+    font-family: 'Dense', Arial, sans-serif;
     font-size: 24px;
 }
 
@@ -352,6 +401,7 @@ a.df-logo {
 .main-nav {
     height: 70px;
     margin: 0 auto;
+    padding: 0 4.5%;
 }
 
     .main-nav .df-logo {
@@ -368,7 +418,7 @@ a.df-logo {
     }
 
     .main-nav a {
-        font-family: 'Dense', Helvetica, serif;
+        font-family: 'Dense', Arial, serif;
         font-size: 24px;
         text-transform: uppercase;
         color: @white;
@@ -461,20 +511,31 @@ footer {
     }
 
 
+
+
+
+
+
+
+
 /*----------------------------------------*\
     #CONTENT-STYLING
 \*----------------------------------------*/
 
 .hero-area {
-    // width: 100%;
     color: white;
-    background: @darkgray url(img/hero_bg.jpg) no-repeat;
-    background-size: cover;
     text-align: center;
     min-height: 500px;
-    padding: 0 4.5%;
-
 }
+
+    .hero-area .hero-bg {
+        background: @darkgray url(img/hero_bg.jpg) no-repeat;
+        background-size: cover;
+        position: fixed;
+        width: 100%;
+        height: 110%;
+        z-index: -1;
+    }
 
     .hero-area__text-container {
         width: 40%;
@@ -541,8 +602,10 @@ footer {
         }
 
         .portfolio__project__thumbnail img {
-           width: 100%;
-           height: 100%;
+           width: auto;
+           height: auto;
+           display: block;
+           margin: 0 auto;
         }
 
 

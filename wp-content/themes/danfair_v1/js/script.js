@@ -1,5 +1,13 @@
+// allow $ in wordpress jquery
 (function($) {
 
+    // functions and classes
+    function parallax() {
+        var scrolled = $(window).scrollTop();
+        $(".parallax-bg").css("top", -(scrolled * 0.25) + "px");
+    }
+
+    //
     $(document).ready(function() {
         
         
@@ -13,6 +21,8 @@
                 $arrow.addClass("bounce-up");
             } else if ($arrow.hasClass("right")) {
                 $arrow.addClass("bounce-right");
+            } else if ($arrow.hasClass("btn__github-logo")) {
+                $arrow.addClass("github-pulse");
             }
         }, 
         function() {
@@ -29,11 +39,11 @@
         // size hero area on front page
         var windowHeight = $(window).height();
         var navHeight = $(".main-nav").height();
-        var heroHeight = (windowHeight - navHeight) + 70;
+        var heroHeight = (windowHeight - navHeight) + 70;  // 70 for nav bar offset
         $(".hero-area").css("height", heroHeight);
 
         var heroAreaTextHeight = $(".hero-area__text-container").height();
-        $(".hero-area__text-container").css("padding-top", ((heroHeight - heroAreaTextHeight) / 2.5));  // little higher than half way
+        $(".hero-area__text-container").css("padding-top", ((heroHeight - heroAreaTextHeight) / 2) - 70);  // little higher than half way, 70 for nav bar offset
 
         // smooth scroll on front page
         var portfolioPosition = $(".portfolio").offset();
@@ -50,5 +60,16 @@
             $(".front-page-nav").removeClass("display-none");
         }
 
+        // set max-height for portfolio thumbnails on front page
+        $(".portfolio__project__text").each(function(i) {
+            var portfolioTextHeight = $(this).outerHeight();
+            $(this).siblings().find(".attachment-post-thumbnail").css("max-height", portfolioTextHeight);
+        });
+
     });
+
+    $(window).scroll(function(e) {
+        parallax();
+    });
+
 })(jQuery);
