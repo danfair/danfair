@@ -8,8 +8,8 @@
         </div>
     </section>
     <section class="page-content contact-section">
+        <h2>I'd love to hear from you!</h2>
         <div class="content-wrapper max-width-wrapper">
-            <h2>I'd love to hear from you!</h2>
             <?php the_content(); ?>
             <aside class="sidebar">
                 <h4>Email</h4>

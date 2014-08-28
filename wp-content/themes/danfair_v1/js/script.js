@@ -4,7 +4,7 @@
     // functions and classes
     function parallax() {
         var scrolled = $(window).scrollTop();
-        $(".parallax-bg").css("top", -(scrolled * 0.25) + "px");
+        $(".parallax-bg").css("top", -(scrolled * 0.2) + "px");
     }
 
     //
@@ -46,10 +46,18 @@
         $(".hero-area__text-container").css("padding-top", ((heroHeight - heroAreaTextHeight) / 2) - 70);  // little higher than half way, 70 for nav bar offset
 
         // smooth scroll on front page
-        var portfolioPosition = $(".portfolio").offset();
         $(".see-work-button").on("click", function(event) {
             event.preventDefault();
             $("html, body").animate({
+              scrollTop: $(this.hash).offset().top - 70 // account for nav
+            }, 500);
+        });
+
+        $(".front-page-nav li:first-child a").on("click", function(event) {
+            event.preventDefault();
+            console.log($(this));
+            $("html, body").animate({
+
               scrollTop: $(this.hash).offset().top - 70 // account for nav
             }, 500);
         });
@@ -70,9 +78,19 @@
         $(".see-work-button").waypoint(function(dir) {
             if (dir == "down") {
                 
-                $(".main-header").addClass("main-header--fixed").fadeIn(250);
+                $(".main-header").addClass("main-header--fixed").css("opacity", ".9").fadeIn(250);
             } else {
                 $(".main-header").removeClass("main-header--fixed").css("display", "none");  // no fade out because of fast scroll-ups
+            }
+        });
+
+        // sticky nav for non-home pages
+        $(".page-content").waypoint(function(dir) {
+            if (dir == "down") {
+                
+                $(".main-header").addClass("main-header--fixed").css("opacity", ".9").fadeIn(250);
+            } else {
+                $(".main-header").removeClass("main-header--fixed").css("opacity", "1");  // no fade out because of fast scroll-ups
             }
         });
 
@@ -114,6 +132,24 @@
         // take error styling away on focus
         $(".wpcf7-form").on("focus", ".form-error-background", function() {
             $(this).removeClass("form-error-background").attr("placeholder", "");
+        });
+
+        // space down bar chart in about section
+        $(".blue-bar").each(function(index) {
+            switch(index) {
+                case 0:
+                    $(this).css("margin-top", "20px");
+                    break;
+                case 1: 
+                    $(this).css("margin-top", "40px");
+                    break;
+                case 2:
+                    $(this).css("margin-top", "70px");
+                    break;
+                case 3:
+                    $(this).css("margin-top", "80px");
+                    break;
+            }
         });
 
     });
