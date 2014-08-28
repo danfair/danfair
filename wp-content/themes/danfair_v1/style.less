@@ -139,12 +139,14 @@ a:hover {
 \*----------------------------------------*/
 
 .btn {
-    padding: 10px 23px 10px 25px; /* account for sprite padding */
+    padding: 10px 18px 10px 20px; /* account for sprite padding */
     display: inline-block;
     max-width: 200px;
     text-align: center;
     font-size: 12px;
     font-family: 'Montserrat', 'Times New Roman', serif;
+    text-decoration: none;
+    color: @darkgray;
 }
 
     /* button animations */
@@ -332,6 +334,7 @@ a:hover {
 
     .btn--orange:hover {
         color: @orange;
+        text-decoration: none;
     }
 
     .btn--orange-white {
@@ -341,6 +344,7 @@ a:hover {
 
     .btn--orange-white:hover {
         color: @orange;
+        text-decoration: none;
     }
 
     .btn--white {
@@ -348,15 +352,19 @@ a:hover {
         color: white;
     }
 
+    .btn--white:hover {
+        text-decoration: none;
+    }
+
     .btn__arrow {
-        height: 18px;
-        width: 18px;
+        height: 16px;
+        width: 16px;
         float: right;
         margin-left: 5px;
         background: url(img/arrow_sprite.png) no-repeat;
     }
         .btn__arrow.white.down {
-            background-position: 0px -72px;
+            background-position: 0px -74px;
         }
         .btn__arrow.white.up {
             background-position: 0px -94px;
@@ -371,12 +379,12 @@ a:hover {
             background-position: 0px -25px;
         }
         .btn__arrow.black.right {
-            background-position: 0px -49px;
+            background-position: 0px -51px;
         }
 
         .btn__github-logo {
-            height: 18px;
-            width: 18px;
+            height: 16px;
+            width: 16px;
             float: right;
             margin-left: 10px;
             background: url(img/github_black_icon.png) no-repeat;
@@ -593,6 +601,10 @@ footer {
         font-size: 100px;
     }
 
+    .hero-area__text-container a {
+        font-size: 16px;
+    }
+
     .hero-area__text-container p {
         margin-bottom: 24px;
         font-size: 18px;
@@ -675,6 +687,7 @@ footer {
 
         .wpcf7 input:focus, .wpcf7 textarea:focus {
             outline: none;
+            box-shadow: @orange 0px 0px 1px 1px;
         }
 
         .wpcf7 input {
