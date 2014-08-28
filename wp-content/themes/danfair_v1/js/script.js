@@ -47,16 +47,16 @@
 
         // smooth scroll on front page
         var portfolioPosition = $(".portfolio").offset();
-        $(".see-work-button").on("click", function(e) {
-            e.preventDefault();
+        $(".see-work-button").on("click", function(event) {
+            event.preventDefault();
             $("html, body").animate({
-              scrollTop: $(this.hash).offset().top
-            }, 250);
+              scrollTop: $(this.hash).offset().top - 70 // account for nav
+            }, 500);
         });
 
         // swap out clear nav on front page
         if ($(".front-page-nav").length > 0) {
-            $(".main-nav").first().addClass("display-none");
+            $(".main-header").first().addClass("display-none");
             $(".front-page-nav").removeClass("display-none");
         }
 
@@ -66,9 +66,43 @@
             $(this).siblings().find(".attachment-post-thumbnail").css("max-height", portfolioTextHeight);
         });
 
+        // show sticky nav bar on home page
+        $(".see-work-button").waypoint(function(dir) {
+            if (dir == "down") {
+                
+                $(".main-header").addClass("main-header--fixed").fadeIn(250);
+            } else {
+                $(".main-header").removeClass("main-header--fixed").css("display", "none");  // no fade out because of fast scroll-ups
+            }
+        });
+
+        // validate contact form
+        $(".wpcf7-submit").on("click", function(event) {
+
+            if ($(".contact-form__name input").val() == "") {
+                event.preventDefault();
+                $(".contact-form__name input").attr("placeholder", "Dont' forget your name!").addClass("form-error-background");
+            }
+
+            if ($(".contact-form__email input").val() == "") {
+                event.preventDefault();
+                $(".contact-form__email input").attr("placeholder", "You forgot your email!").addClass("form-error-background");
+            }
+
+            if ($(".contact-form__message textarea").val() == "") {
+                event.preventDefault();
+                $(".contact-form__message textarea").attr("placeholder", "Surely you have something to say!").addClass("form-error-background");
+            }
+        });
+
+        // take error styling away on focus
+        $(".wpcf7-form").on("focus", ".form-error-background", function() {
+            $(this).removeClass("form-error-background").attr("placeholder", "");
+        });
+
     });
 
-    $(window).scroll(function(e) {
+    $(window).scroll(function(event) {
         parallax();
     });
 

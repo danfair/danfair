@@ -56,14 +56,15 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 \*----------------------------------------*/
 
 body {
-    height: 1500px;
+    height: 100%;
 }
 
 h1 {
     font-family: 'Dense', Arial, sans-serif;
-    font-size: 80px;
+    font-size: 64px;
     margin: 15px 0;
     color: @darkgray;
+    text-transform: uppercase;
 }
 
 h2 {
@@ -71,6 +72,7 @@ h2 {
     font-size: 40px;
     margin: 10px 0;
     color: @orange;
+    text-transform: uppercase;
 }
 
 h3 {
@@ -78,6 +80,7 @@ h3 {
     font-size: 32px;
     margin: 10px 0;
     color: @darkgray;
+    text-transform: uppercase;
 }
 
 h4 {
@@ -85,24 +88,25 @@ h4 {
     font-size: 24px;
     margin: 10px 0;
     color: @blue;
+    text-transform: uppercase;
 }
 
 p {
     font-family: 'Open Sans', 'Times New Roman', serif;
-    font-size: 16px;
+    font-size: 14px;
     margin: 8px 0;
 }
 
 a {
-    font-family: 'Montserrat', 'Times New Roman', serif;
-    font-size: 14px;
-    color: @blue;
+    color: darken(@orange, 10%);
     text-decoration: none;
     .transition(color, .5s);
+
 }
 
 a:hover {
-    color: darken(@blue, 25%);
+    color: @orange;
+    text-decoration: underline;
 }
 
 /* spacing when browser is wide */
@@ -139,7 +143,8 @@ a:hover {
     display: inline-block;
     max-width: 200px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
+    font-family: 'Montserrat', 'Times New Roman', serif;
 }
 
     /* button animations */
@@ -398,10 +403,21 @@ a.df-logo {
     padding:0 4.5%;
 }
 
+    .main-header--fixed {
+        position: fixed;
+        top: 0;
+        z-index: 50;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .main-header--fixed .main-nav, .front-page-nav {
+        padding: 0 4.5%;
+    }
+
 .main-nav {
     height: 70px;
     margin: 0 auto;
-    padding: 0 4.5%;
 }
 
     .main-nav .df-logo {
@@ -475,6 +491,26 @@ a.df-logo {
             background: url(img/social_icons_sprite.png) no-repeat 0px -129px;
         }
 
+.page-sub-header {
+    padding: 15px 4.5%;
+    height: 125px;
+}
+
+    .page-sub-header__text {
+        margin-top: 28px;
+    }
+
+.page-content {
+    padding: 4.5%;
+    background: @lightgray;
+    overflow: auto;
+}
+
+    .page-content h2 {
+        margin-top: 0;
+    }
+
+
 .tags-list {
     display: block;
     width: 100%;
@@ -489,6 +525,7 @@ a.df-logo {
         color: @white;
         display: inline;
         margin: 0 5px;
+        text-transform: uppercase;
     }
 
     .tags-list__tag:first-child {
@@ -498,6 +535,7 @@ a.df-logo {
 footer {
     background: @darkgray;
     height: 70px;
+    clear: both;
 }
 
     footer .df-logo {
@@ -510,7 +548,14 @@ footer {
         padding: 0 4.5%;
     }
 
-
+.sidebar {
+    width: 30.333%;
+    float: right;
+}
+    
+    .sidebar h4:not(:first-of-type) {
+        margin-top: 23px;
+    }
 
 
 
@@ -545,6 +590,7 @@ footer {
 
     .hero-area__text-container h1 {
         margin-bottom: 0;
+        font-size: 100px;
     }
 
     .hero-area__text-container p {
@@ -559,10 +605,6 @@ footer {
 
     .portfolio__header-wrapper {
         margin: 0 4.5%;
-    }
-
-    .portfolio h3 {
-        text-transform: uppercase;
     }
 
     .portfolio__project {
@@ -608,6 +650,107 @@ footer {
            margin: 0 auto;
         }
 
+.contact-section{}
 
+    .contact-bg {
+        background: url(img/chicago_skyline.jpg) no-repeat 0% 100%;
+        z-index: -1;
+        background-size: cover;
+    }
+
+    .contact-section input {
+        border: 0;
+        height: 45px;
+        width: 100%;
+    }
+
+    .contact-section textarea {
+        border: 0;
+    }
+
+    .wpcf7 {  
+        width: 65.1%;
+        float: left;
+    } /* contact form */
+
+        .wpcf7 input:focus, .wpcf7 textarea:focus {
+            outline: none;
+        }
+
+        .wpcf7 input {
+            padding-left: 5px;
+        }
+
+        .contact-form__name {
+            width: 47.75%;
+            margin-right: 4.5%;
+            float: left;
+        }
+
+        .contact-form__email {
+            width: 47.75%;
+            float: right;
+        }
+
+        .contact-form__message {
+            clear: both;
+            padding-top: 5px;
+        }
+
+        .contact-form__message textarea {
+            width: 100%;
+            padding-left: 5px;
+            padding-top: 15px;
+            min-height: 200px;
+        }
+
+        .contact-form__submit {
+            margin-right: -5px; /* align with 5px extra padding in input fields */
+        }
+
+        .contact-form__submit input[type=submit] {
+            border: @orange 2px solid;
+            display: inline-block;
+            max-width: 200px;
+            text-align: center;
+            font-size: 14px;
+            padding: 10px 25px;
+            background: @lightgray;
+            font-family: 'Montserrat', 'Times New Roman', serif;
+            .transition(color, .5s);
+            float: right;
+            margin-top: 13px;
+            cursor: pointer;
+        }
+
+        .contact-form__submit input[type=submit]:hover {
+            color: @orange;
+        }
+
+        /* form error stylings */
+
+        .form-error-background {
+            background: #ED8787;
+        }
+
+        ::-webkit-input-placeholder {
+           color: @darkgray;
+           font-style: italic;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+           color: @darkgray; 
+           font-style: italic; 
+        }
+
+        ::-moz-placeholder {  /* Firefox 19+ */
+           color: @darkgray;
+           font-style: italic;  
+        }
+
+        :-ms-input-placeholder {  
+           color: @darkgray; 
+           font-style: italic; 
+        }
 
 

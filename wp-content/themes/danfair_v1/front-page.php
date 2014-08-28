@@ -34,6 +34,11 @@
         <div class="portfolio__project">
             <div class="max-width-wrapper">
                 <h3><?php the_title(); ?></h3>
+                <div class="portfolio__project__thumbnail">
+                    <?php if (has_post_thumbnail()) {
+                        the_post_thumbnail();
+                    } ?>
+                </div>
                 <div class="portfolio__project__text">
                     <?php 
                         $post_tags = get_the_tags();
@@ -49,11 +54,7 @@
                     <a href="<?php the_permalink(); ?>" class="btn btn--orange">See project summary<div class="btn__arrow black right"></div></a>
                     <a href="<?php the_field('github-link'); ?>" class="btn btn--orange">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
                 </div>
-                <div class="portfolio__project__thumbnail">
-                    <?php if (has_post_thumbnail()) {
-                        the_post_thumbnail();
-                    } ?>
-                </div>
+                
             </div>
         </div>
         <?php endwhile; else: ?>
