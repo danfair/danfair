@@ -105,6 +105,12 @@
             }
         });
 
+        // position background arrow exactly for submit button
+        var inputWidth = $(".wpcf7-submit").outerWidth();
+        var backgroundXPos = inputWidth - 38;
+            // 38 = 20 padding, 18 width of arrow)
+        $(".wpcf7-submit").css("background-position", backgroundXPos + "px 50%");
+
         // take error styling away on focus
         $(".wpcf7-form").on("focus", ".form-error-background", function() {
             $(this).removeClass("form-error-background").attr("placeholder", "");

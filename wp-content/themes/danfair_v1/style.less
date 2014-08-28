@@ -379,7 +379,7 @@ a:hover {
             background-position: 0px -25px;
         }
         .btn__arrow.black.right {
-            background-position: 0px -51px;
+            background-position: 0px -52px;
         }
 
         .btn__github-logo {
@@ -447,6 +447,7 @@ a.df-logo {
         text-transform: uppercase;
         color: @white;
         line-height: 70px;
+        text-decoration: none;
     }
 
     .main-nav .current-menu-item a {
@@ -675,7 +676,7 @@ footer {
         float: left;
     } 
 
-        .wpcf7 input {
+        .wpcf7 input:not([type=submit]) {
             border: 0;
             height: 45px;
             width: 100%;
@@ -725,13 +726,16 @@ footer {
             max-width: 200px;
             text-align: center;
             font-size: 14px;
-            padding: 10px 25px;
-            background: @lightgray;
+            background: @lightgray url(img/black_right_arrow.png) no-repeat;
+            background-position: 85% 50%;
+            padding: 10px 38px 10px 20px;
+            /* default space for arrow, fix to exact spacing in JS */
             font-family: 'Montserrat', 'Times New Roman', serif;
             .transition(color, .5s);
             float: right;
             margin-top: 13px;
             cursor: pointer;
+            
         }
 
         .contact-form__submit input[type=submit]:hover {
@@ -747,6 +751,7 @@ footer {
             font-size: 14px;
             margin-left: 0;
             margin-right: 0;
+            padding: 14px;
         }
 
         .form-error-background {
