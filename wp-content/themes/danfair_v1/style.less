@@ -670,28 +670,33 @@ footer {
         background-size: cover;
     }
 
-    .contact-section input {
-        border: 0;
-        height: 45px;
-        width: 100%;
-    }
-
-    .contact-section textarea {
-        border: 0;
-    }
-
-    .wpcf7 {  
+    .wpcf7 {  /* contact form */
         width: 65.1%;
         float: left;
-    } /* contact form */
-
-        .wpcf7 input:focus, .wpcf7 textarea:focus {
-            outline: none;
-            box-shadow: @orange 0px 0px 1px 1px;
-        }
+    } 
 
         .wpcf7 input {
+            border: 0;
+            height: 45px;
+            width: 100%;
+        }
+
+
+        .wpcf7 textarea {
+            width: 100%;
+            padding-top: 15px;
+            min-height: 200px;
+        }
+
+        .wpcf7 input, .wpcf7 textarea {
             padding-left: 5px;
+            .transition(box-shadow, .5s);
+            border: 0;
+        }
+
+        .wpcf7 input:focus:not([type=submit]), .wpcf7 textarea:focus {
+            outline: none;
+            box-shadow: @orange 0px 0px 1px 1px;
         }
 
         .contact-form__name {
@@ -708,13 +713,6 @@ footer {
         .contact-form__message {
             clear: both;
             padding-top: 5px;
-        }
-
-        .contact-form__message textarea {
-            width: 100%;
-            padding-left: 5px;
-            padding-top: 15px;
-            min-height: 200px;
         }
 
         .contact-form__submit {
@@ -740,10 +738,20 @@ footer {
             color: @orange;
         }
 
-        /* form error stylings */
+        .contact-form__submit input[type=submit]:focus {
+            outline: none;
+        }
+
+        .wpcf7-form .wpcf7-response-output {
+            font-family: 'Open Sans', 'Times New Roman', serif;
+            font-size: 14px;
+            margin-left: 0;
+            margin-right: 0;
+        }
 
         .form-error-background {
-            background: #ED8787;
+            background: #FCD6D6;
+            box-shadow: red 0px 0px 1px 1px;
         }
 
         ::-webkit-input-placeholder {

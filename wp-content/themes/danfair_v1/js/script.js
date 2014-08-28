@@ -78,20 +78,30 @@
 
         // validate contact form
         $(".wpcf7-submit").on("click", function(event) {
+            var isError = false;
 
             if ($(".contact-form__name input").val() == "") {
                 event.preventDefault();
+                isError = true;
                 $(".contact-form__name input").attr("placeholder", "Dont' forget your name!").addClass("form-error-background");
             }
 
             if ($(".contact-form__email input").val() == "") {
                 event.preventDefault();
+                isError = true;
                 $(".contact-form__email input").attr("placeholder", "You forgot your email!").addClass("form-error-background");
             }
 
             if ($(".contact-form__message textarea").val() == "") {
                 event.preventDefault();
+                isError = true;
                 $(".contact-form__message textarea").attr("placeholder", "Surely you have something to say!").addClass("form-error-background");
+            }
+
+            
+            // remove form if successful
+            if (!isError) {
+                $(".wpcf7 div").not(".wpcf7-response-output").fadeOut(250);
             }
         });
 
