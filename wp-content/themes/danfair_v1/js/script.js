@@ -9,9 +9,8 @@
 
     //
     $(document).ready(function() {
-        
-        
 
+        var changes = "tkljakdsf asdfasdf jbjb  j fgadsf a dsfasdf  hj asdfa asdf asdf f asdfj";
         // button animations
         $(".btn").hover(function(event) {
             var $arrow = $(this).find(".btn__arrow");
@@ -53,11 +52,9 @@
             }, 500);
         });
 
-        $(".front-page-nav li:first-child a").on("click", function(event) {
+        $(".front-page-nav li.menu-item:first-child a").on("click", function(event) {
             event.preventDefault();
-            console.log($(this));
             $("html, body").animate({
-
               scrollTop: $(this.hash).offset().top - 70 // account for nav
             }, 500);
         });
@@ -76,17 +73,21 @@
 
         // show sticky nav bar on home page
         $(".see-work-button").waypoint(function(dir) {
-            if (dir == "down") {
+            if (dir === "down") {
                 
                 $(".main-header").addClass("main-header--fixed").css("opacity", ".9").fadeIn(250);
             } else {
-                $(".main-header").removeClass("main-header--fixed").css("display", "none");  // no fade out because of fast scroll-ups
+                $(".main-header").removeClass("main-header--fixed").css("display", "none");  // no fade out because of fast scroll-ups yeah
             }
+        });
+
+        $(".main-header_social-icons-list").on("click", function() {
+
         });
 
         // sticky nav for non-home pages
         $(".page-content").waypoint(function(dir) {
-            if (dir == "down") {
+            if (dir === "down") {
                 
                 $(".main-header").addClass("main-header--fixed").css("opacity", ".9").fadeIn(250);
             } else {
@@ -98,19 +99,19 @@
         $(".wpcf7-submit").on("click", function(event) {
             var isError = false;
 
-            if ($(".contact-form__name input").val() == "") {
+            if ($(".contact-form__name input").val() === "") {
                 event.preventDefault();
                 isError = true;
                 $(".contact-form__name input").attr("placeholder", "Dont' forget your name!").addClass("form-error-background");
             }
 
-            if ($(".contact-form__email input").val() == "") {
+            if ($(".contact-form__email input").val() === "") {
                 event.preventDefault();
                 isError = true;
                 $(".contact-form__email input").attr("placeholder", "You forgot your email!").addClass("form-error-background");
             }
 
-            if ($(".contact-form__message textarea").val() == "") {
+            if ($(".contact-form__message textarea").val() === "") {
                 event.preventDefault();
                 isError = true;
                 $(".contact-form__message textarea").attr("placeholder", "Surely you have something to say!").addClass("form-error-background");
