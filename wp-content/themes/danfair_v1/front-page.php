@@ -18,7 +18,9 @@
                 <?php the_content(); ?>
                 <a href="#portfolio-section" class="btn btn--orange-white see-work-button">See my work<div class="btn__arrow white down bounce-down"></div></a>
             </div>
+
     </section><!-- end of hero-area -->
+    <span id="portfolio"></span>
     <section id="portfolio-section" class="portfolio">
         <div class="portfolio__header-wrapper">
             <h2 class="max-width-wrapper">PORTFOLIO</h2>

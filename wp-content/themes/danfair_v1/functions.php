@@ -50,12 +50,6 @@
 
     add_action('init', 'register_projects_post_type');
 
-    // replace hellip as read more on blog posts
-    // function new_excerpt_more( $more ) {
-    //     return '[.....]';
-    // }
-    // add_filter('excerpt_more', 'new_excerpt_more');
-
     // infinite scroll
     function wp_infinitepaginate(){ 
         $loopFile        = $_POST['loop_file'];

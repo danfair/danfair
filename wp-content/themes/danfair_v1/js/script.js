@@ -9,20 +9,73 @@
 
     function loadArticle(pageNumber) {
         $.ajax({
-            url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
+            url: "../wp-admin/admin-ajax.php",
             type:'POST',
-            data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=loop', 
+            data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=more-posts', 
             success: function(html){
-                $("#content").append(html);    // This will be the div where our content will be loaded
+
+                $(".page-content__content-left").append(html);
+                $(".blog-section__post__button.page-" + pageNumber).parents(".blog-section__post").each(function(index) {
+                    var that = $(this);
+                    console.log(that);
+                    collapsePost(that);
+                }); 
+                $(".blog-section__post__button.page-" + pageNumber).on("click", function(event) {
+                    event.preventDefault();
+                    var that = $(this);
+                    togglePostView(that);
+                });
             }
         });
         return false;
     }
 
+    function togglePostView(that) {
+            
+            console.dir("Event: " + event);
+            console.dir("this: " + $(this));
+            console.log("Why is this running");
+            if (that.children(".btn__arrow").hasClass("down")) {
+                that.html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up bounce-up");
+                
+                // change layout, then animate in
+                that.siblings("p:nth-of-type(1)").css({
+                        float: "none",
+                        width: "100%"
+                    });
+                that.siblings("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").animate({ 
+                    height: 'toggle',
+                    opacity: 'toggle' 
+                }, 500);
+            } else {
+                that.html('See more<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("down bounce-down");
+
+                // animate out, then change layout
+                that.siblings("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").animate({ 
+                    height: 'toggle', 
+                    opacity: 'toggle'
+                }, 500, function() {
+                    $(this).siblings("p:nth-of-type(1)").css({
+                        float: "left",
+                        width: "65%"
+                    });
+                });
+            }
+        }
+
+        // initial collapse of blog posts
+        function collapsePost(that) {
+            that.children("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").css("display", "none");
+            that.children("p:nth-of-type(1)").css({
+                float: "left",
+                width: "65%",
+                marginBottom: 0
+            });
+        }
+
     //
     $(document).ready(function() {
 
-        var changes = "tkljakdsf asdfasdf jbjb  j fgadsf a dsfasdf  hj asdfa asdf asdf f asdfj";
         // button animations
         $(".btn").hover(function(event) {
             var $arrow = $(this).find(".btn__arrow");
@@ -165,26 +218,28 @@
             }
         });
 
-        // hide/show blog posts
+        // initial hide of blog post body
         $(".blog-section__post").each(function(i) {
-            console.log(i);
-            if (i != 0) {
-                $(this).children("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").css("display", "none");
-                $(this).children("p:nth-of-type(1)").css({
-                    float: "left",
-                    width: "65%"
-                });
+            if (i !== 0) {
+                var that = $(this);
+                collapsePost(that);
             }
         });
 
+        $(".blog-section__post__button").on("click", function(event) {
+            event.preventDefault();
+            var that = $(this);
+            togglePostView(that);
+        });
     });
 
     var pageCounter = 2;
     $(window).scroll(function(event) {
         parallax();
-        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+        if  ($(window).scrollTop() === $(document).height() - $(window).height()){
            loadArticle(pageCounter);
            pageCounter++;
+           console.log(pageCounter);
         }
     });
 

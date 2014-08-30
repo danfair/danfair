@@ -1,7 +1,7 @@
 /*
     THEME NAME: Dan Fair v. 1
     THEME URI: n/a
-    DESCRIPTION: Custom theme for my own portfolio site
+    DESCRIPTION: Custom theme for my portfolio site
     VERSION: 1.0
     AUTHOR: Dan Fair
     License: GNU GPL v2 (or current)
@@ -373,6 +373,9 @@ input {
         float: right;
         margin-left: 5px;
         background: url(img/arrow_sprite.png) no-repeat;
+        -moz-transition: .5s ease-in-out;
+        -webkit-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
     }
         .btn__arrow.white.down {
             background-position: 0px -74px;
@@ -387,7 +390,7 @@ input {
             background-position: 0px -6px;
         }
         .btn__arrow.black.up {
-            background-position: 0px -25px;
+            background-position: 0px -28px;
         }
         .btn__arrow.black.right {
             background-position: 0px -52px;
@@ -544,7 +547,7 @@ a.df-logo {
     display: block;
     width: 100%;
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 12px;
+    font-size: 10px;
     padding: 5px 0;
 }
 
@@ -554,7 +557,7 @@ a.df-logo {
         color: @white;
         display: inline;
         margin: 0 5px;
-        text-transform: uppercase;
+        text-transform: uppercase;    
     }
 
     .tags-list__tag a {
@@ -639,6 +642,11 @@ footer {
             display: inline;
             float: left;
             text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .wp-tag-cloud a:hover {
+            color: darken(@white, 25);
         }
 
 
@@ -652,6 +660,7 @@ footer {
     color: white;
     text-align: center;
     min-height: 500px;
+    position: relative;
 }
 
     .hero-area .hero-bg {
@@ -683,6 +692,13 @@ footer {
         font-size: 18px;
         color: white;
     }
+
+/* anchor for other page links to portfolio */
+#portfolio {
+    position: absolute;
+    bottom: 0;
+    display: block;
+}
 
 .portfolio {
     padding: 4.5% 0 0;
@@ -966,12 +982,12 @@ footer {
 
     .blog-section .attachment-post-thumbnail {
         float: right;
-        width: auto;
         height: auto;
         display: block;
         max-width: 35%;
         border-radius: 1000000px;
         margin-left: 28px;
+        margin-bottom: 28px;
     }
 
     .blog-section .sidebar {

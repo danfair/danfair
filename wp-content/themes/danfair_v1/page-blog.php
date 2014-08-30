@@ -13,7 +13,7 @@
             <div class="page-content__content-left">
                 <?php
                     $args = array(
-                        'posts_per_page' => '-1',
+                        'posts_per_page' => '5',
                         'post_type' => 'post', 
                     );
                     $posts = new WP_Query($args);
@@ -26,15 +26,18 @@
                         if (has_post_thumbnail()) {
                             the_post_thumbnail();
                         };
+                        // WP only puts first date if 2+ posts are on the same day
+                        $date = get_the_date();
+                        echo "<h4>" . $date . "</h4>";
+
                         the_content();
                         if ($index != 1) : ?>
-                        <a href="#" class="btn btn--orange">See more<div class="btn__arrow black down"></div></a>
+                        <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
                     <? endif;
                         the_tags('<ul class="tags-list"><li class="tags-list__tag">','</li><li class="tags-list__tag">','</li></ul>');
                     ?>
                 </div>
-                <?php endwhile; endif; wp_reset_query(); 
-                ?>
+                <?php endwhile; endif; wp_reset_query(); ?>
             </div> 
                 <aside class="sidebar">
                     <h4>Search</h4>
@@ -42,8 +45,8 @@
                     <h4>Popular categories</h4>
                     <?php 
                         $args = array(
-                            'smallest'                  => 12, 
-                            'largest'                   => 12,
+                            'smallest'                  => 10, 
+                            'largest'                   => 10,
                             'unit'                      => 'px', 
                             'number'                    => 15,  
                             'format'                    => 'list',
