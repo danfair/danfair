@@ -59,7 +59,7 @@ body {
     height: 100%;
 }
 
-h1 {
+h1, .h1 {
     font-family: 'Dense', Arial, sans-serif;
     font-size: 64px;
     margin: 15px 0;
@@ -67,7 +67,7 @@ h1 {
     text-transform: uppercase;
 }
 
-h2 {
+h2, .h2 {
     font-family: 'Dense', Arial, sans-serif;
     font-size: 40px;
     margin: 20px 0;
@@ -75,7 +75,7 @@ h2 {
     text-transform: uppercase;
 }
 
-h3 {
+h3, .h3 {
     font-family: 'Dense', Arial, sans-serif;
     font-size: 32px;
     margin: 16px 0;
@@ -83,7 +83,7 @@ h3 {
     text-transform: uppercase;
 }
 
-h4 {
+h4, .h4 {
     font-family: 'Dense', Arial, sans-serif;
     font-size: 24px;
     margin: 12px 0;
@@ -112,6 +112,12 @@ a {
 a:hover {
     color: @orange;
     text-decoration: underline;
+}
+
+input {
+    font-family: 'Open Sans', 'Times New Roman', serif;
+    font-size: 14px;
+    color: @darkgray;
 }
 
 /* spacing when browser is wide */
@@ -378,7 +384,7 @@ a:hover {
             background-position: 0px -117px;
         }
         .btn__arrow.black.down {
-            background-position: 0px -2px;
+            background-position: 0px -6px;
         }
         .btn__arrow.black.up {
             background-position: 0px -25px;
@@ -542,13 +548,23 @@ a.df-logo {
     padding: 5px 0;
 }
 
-    .tags-list__tag {
+    li.tags-list__tag {
         padding: 5px 10px;
         background: @blue;
         color: @white;
         display: inline;
         margin: 0 5px;
         text-transform: uppercase;
+    }
+
+    .tags-list__tag a {
+        color: white;
+        .transition(color, .5s);
+        text-decoration: none;
+    }
+
+    .tags-list__tag a:hover {
+        color: darken(@white, 25);
     }
 
     .tags-list__tag:first-child {
@@ -584,8 +600,46 @@ footer {
         margin-top: 16px;
     }
 
+    .sidebar__search-form {
+        width: 100%;
+    }
 
+        .sidebar__search-form label {
+            display: none;
+        }
 
+        .sidebar__search-form input[type=submit] {
+            position: absolute;
+            right: -99999999px;
+        }
+
+        .sidebar__search-form input[type=text] {
+            border: 0;
+            height: 45px;
+            width: 100%;
+            padding-left: 5px;
+            .transition(box-shadow, .5s);
+        }
+
+        .sidebar__search-form input[type=text]:focus {
+            outline: none;
+            box-shadow: @orange 0px 0px 1px 1px;
+        }
+
+    .sidebar .wp-tag-cloud {
+        font-family: 'Montserrat', 'Times New Roman', serif;
+        font-size: 12px;
+    }
+
+        .wp-tag-cloud a {
+            padding: 5px 10px;
+            margin: 10px 10px 0 0;
+            background: @blue;
+            color: @white;
+            display: inline;
+            float: left;
+            text-transform: uppercase;
+        }
 
 
 
@@ -692,6 +746,12 @@ footer {
 
     .about-bg {
         background: url(img/mountain_clouds.jpg) no-repeat 0% 100%;
+        z-index: -1;
+        background-size: cover;
+    }
+
+    .blog-bg {
+        background: url(img/bear.jpg) no-repeat 0% 100%;
         z-index: -1;
         background-size: cover;
     }
@@ -878,8 +938,45 @@ footer {
             margin-right: 0;
         }
 
+.blog-section {}
 
+    .blog-section__first-header {
+        font-size: 40px;
+        margin: 20px 0;
+        color: @orange;
+    }
 
+    .blog-section__post {
+        padding-bottom: 28px;
+        padding-top: 28px;
+        border-bottom: @darkgray 1px solid;
+        overflow: auto;
+        position: relative;
+    }
+
+        .blog-section__post .btn {
+            position: absolute;
+            right: 0;
+            bottom: 28px;
+        }
+
+        .blog-section__post h3 {
+            margin-top: 0;
+        }
+
+    .blog-section .attachment-post-thumbnail {
+        float: right;
+        width: auto;
+        height: auto;
+        display: block;
+        max-width: 35%;
+        border-radius: 1000000px;
+        margin-left: 28px;
+    }
+
+    .blog-section .sidebar {
+        margin-top: 70px;
+    }
 
 
 

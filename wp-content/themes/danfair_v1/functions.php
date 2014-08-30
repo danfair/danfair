@@ -11,7 +11,7 @@
     function register_custom_script() {
         wp_enqueue_script(
             'custom-script',
-            get_stylesheet_directory_uri() . '/js/global.min.js',
+            get_stylesheet_directory_uri() . '/js/script.js',
             array( 'jquery' )
         );
     }
@@ -49,4 +49,30 @@
     }
 
     add_action('init', 'register_projects_post_type');
+
+    // replace hellip as read more on blog posts
+    // function new_excerpt_more( $more ) {
+    //     return '[.....]';
+    // }
+    // add_filter('excerpt_more', 'new_excerpt_more');
+
+    // infinite scroll
+    function wp_infinitepaginate(){ 
+        $loopFile        = $_POST['loop_file'];
+        $paged           = $_POST['page_no'];
+        $posts_per_page  = 5;
+     
+        # Load the posts
+        query_posts(array('paged' => $paged )); 
+        get_template_part( $loopFile );
+     
+        exit;
+    }
+
+    add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');           // for logged in user
+    add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');
+
+
+
+
 ?>

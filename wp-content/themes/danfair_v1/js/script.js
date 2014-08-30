@@ -7,6 +7,18 @@
         $(".parallax-bg").css("top", -(scrolled * 0.2) + "px");
     }
 
+    function loadArticle(pageNumber) {
+        $.ajax({
+            url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
+            type:'POST',
+            data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=loop', 
+            success: function(html){
+                $("#content").append(html);    // This will be the div where our content will be loaded
+            }
+        });
+        return false;
+    }
+
     //
     $(document).ready(function() {
 
@@ -153,10 +165,27 @@
             }
         });
 
+        // hide/show blog posts
+        $(".blog-section__post").each(function(i) {
+            console.log(i);
+            if (i != 0) {
+                $(this).children("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").css("display", "none");
+                $(this).children("p:nth-of-type(1)").css({
+                    float: "left",
+                    width: "65%"
+                });
+            }
+        });
+
     });
 
+    var pageCounter = 2;
     $(window).scroll(function(event) {
         parallax();
+        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+           loadArticle(pageCounter);
+           pageCounter++;
+        }
     });
 
 })(jQuery);
