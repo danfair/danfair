@@ -8,60 +8,91 @@
     }
 
     function loadArticle(pageNumber) {
-        $.ajax({
-            url: "../wp-admin/admin-ajax.php",
-            type:'POST',
-            data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=more-posts', 
-            success: function(html){
+        $(".blog-section__loading-indicator").fadeIn(100);
+            $.ajax({
+                url: "../wp-admin/admin-ajax.php",
+                type:'POST',
+                data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=more-posts', 
+                success: function(html){
 
-                $(".page-content__content-left").append(html);
-                $(".blog-section__post__button.page-" + pageNumber).parents(".blog-section__post").each(function(index) {
-                    var that = $(this);
-                    console.log(that);
-                    collapsePost(that);
-                }); 
-                $(".blog-section__post__button.page-" + pageNumber).on("click", function(event) {
-                    event.preventDefault();
-                    var that = $(this);
-                    togglePostView(that);
-                });
-            }
-        });
+                    
+                    $(".page-content__content-left").append(html);
+                    $(".blog-section__post__button.page-" + pageNumber).parents(".blog-section__post").each(function(index) {
+                        var $that = $(this);
+                        collapsePost($that);
+                    }); 
+                    
+                    // add event listeners for loaded post buttons
+                    $(".blog-section__post__button.page-" + pageNumber).on("click", function(event) {
+                        event.preventDefault();
+                        var $that = $(this);
+                        togglePostView($that);
+                    }).hover(function(event) {
+                        var $that = $(this);
+                        buttonAnimate($that);
+                    }, function(event) {
+                        var $that = $(this);
+                        buttonRemoveAnimate($that);
+                    });
+                }
+            });
+            $(".blog-section__loading-indicator").fadeOut(1000);
         return false;
     }
 
-    function togglePostView(that) {
-            
-            console.dir("Event: " + event);
-            console.dir("this: " + $(this));
-            console.log("Why is this running");
-            if (that.children(".btn__arrow").hasClass("down")) {
-                that.html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up bounce-up");
-                
-                // change layout, then animate in
-                that.siblings("p:nth-of-type(1)").css({
-                        float: "none",
-                        width: "100%"
-                    });
-                that.siblings("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").animate({ 
-                    height: 'toggle',
-                    opacity: 'toggle' 
-                }, 500);
-            } else {
-                that.html('See more<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("down bounce-down");
-
-                // animate out, then change layout
-                that.siblings("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").animate({ 
-                    height: 'toggle', 
-                    opacity: 'toggle'
-                }, 500, function() {
-                    $(this).siblings("p:nth-of-type(1)").css({
-                        float: "left",
-                        width: "65%"
-                    });
-                });
+    function buttonAnimate(that) {
+        var $arrow = that.find(".btn__arrow");
+            if ($arrow.hasClass("down")) {
+                $arrow.addClass("bounce-down");
+            } else if ($arrow.hasClass("up")) {
+                $arrow.addClass("bounce-up");
+            } else if ($arrow.hasClass("right")) {
+                $arrow.addClass("bounce-right");
+            } else if ($arrow.hasClass("btn__github-logo")) {
+                $arrow.addClass("github-pulse");
             }
+    }
+
+    function buttonRemoveAnimate(that) {
+        var $arrow = that.find(".btn__arrow");
+            if ($arrow.hasClass("down") && !$arrow.parents(".btn").hasClass("see-work-button")) {
+                $arrow.removeClass("bounce-down");
+            } else if ($arrow.hasClass("up")) {
+                $arrow.removeClass("bounce-up");
+            } else if ($arrow.hasClass("right")) {
+                $arrow.removeClass("bounce-right");
+            }
+    }
+
+    function togglePostView(that) {
+        
+        if (that.children(".btn__arrow").hasClass("down")) {
+            that.html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up bounce-up");
+            
+            // change layout, then animate in
+            that.siblings("p:nth-of-type(1)").css({
+                    float: "none",
+                    width: "100%"
+                });
+            that.siblings("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").animate({ 
+                height: 'toggle',
+                opacity: 'toggle' 
+            }, 500);
+        } else {
+            that.html('See more<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("down bounce-down");
+
+            // animate out, then change layout
+            that.siblings("p:not(:nth-of-type(1)), .tags-list, .attachment-post-thumbnail").animate({ 
+                height: 'toggle', 
+                opacity: 'toggle'
+            }, 500, function() {
+                $(this).siblings("p:nth-of-type(1)").css({
+                    float: "left",
+                    width: "65%"
+                });
+            });
         }
+    }
 
         // initial collapse of blog posts
         function collapsePost(that) {
@@ -78,26 +109,12 @@
 
         // button animations
         $(".btn").hover(function(event) {
-            var $arrow = $(this).find(".btn__arrow");
-            if ($arrow.hasClass("down")) {
-                $arrow.addClass("bounce-down");
-            } else if ($arrow.hasClass("up")) {
-                $arrow.addClass("bounce-up");
-            } else if ($arrow.hasClass("right")) {
-                $arrow.addClass("bounce-right");
-            } else if ($arrow.hasClass("btn__github-logo")) {
-                $arrow.addClass("github-pulse");
-            }
+            var $that = $(this);
+            buttonAnimate($that);
         }, 
         function() {
-            var $arrow = $(this).find(".btn__arrow");
-            if ($arrow.hasClass("down") && !$arrow.parents(".btn").hasClass("see-work-button")) {
-                $arrow.removeClass("bounce-down");
-            } else if ($arrow.hasClass("up")) {
-                $arrow.removeClass("bounce-up");
-            } else if ($arrow.hasClass("right")) {
-                $arrow.removeClass("bounce-right");
-            }
+            var $that = $(this);
+            buttonRemoveAnimate($that);
         });
 
         // size hero area on front page
@@ -231,16 +248,22 @@
             var that = $(this);
             togglePostView(that);
         });
-    });
 
-    var pageCounter = 2;
-    $(window).scroll(function(event) {
-        parallax();
-        if  ($(window).scrollTop() === $(document).height() - $(window).height()){
-           loadArticle(pageCounter);
-           pageCounter++;
-           console.log(pageCounter);
-        }
+        // on scroll events
+        var isBlogPage = $(".blog-section").length > 0 ? true : false;
+        var pageCounter = 2;
+        $(window).scroll(function(event) {
+            parallax();
+            
+            // load next batch of blog posts
+            if  (isBlogPage && $(window).scrollTop() === $(document).height() - $(window).height()) {
+                var hasLastPostSet = $(".blog-section__post").last().hasClass("last-set");
+                if (!hasLastPostSet) {
+                    loadArticle(pageCounter);
+                }
+                pageCounter++;
+            }
+        });
     });
 
 })(jQuery);

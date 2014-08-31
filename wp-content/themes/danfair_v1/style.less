@@ -57,6 +57,7 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 
 body {
     height: 100%;
+    overflow-x: hidden;
 }
 
 h1, .h1 {
@@ -106,7 +107,7 @@ a {
     color: darken(@orange, 10%);
     text-decoration: none;
     .transition(color, .5s);
-
+    font-family: 'Open Sans', 'Times New Roman', serif;
 }
 
 a:hover {
@@ -546,8 +547,6 @@ a.df-logo {
 .tags-list {
     display: block;
     width: 100%;
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 10px;
     padding: 5px 0;
 }
 
@@ -564,6 +563,8 @@ a.df-logo {
         color: white;
         .transition(color, .5s);
         text-decoration: none;
+            font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 10px;
     }
 
     .tags-list__tag a:hover {
@@ -630,8 +631,7 @@ footer {
         }
 
     .sidebar .wp-tag-cloud {
-        font-family: 'Montserrat', 'Times New Roman', serif;
-        font-size: 12px;
+        
     }
 
         .wp-tag-cloud a {
@@ -643,11 +643,14 @@ footer {
             float: left;
             text-transform: uppercase;
             text-decoration: none;
+            font-family: 'Montserrat', 'Times New Roman', serif;
+        font-size: 12px;
         }
 
         .wp-tag-cloud a:hover {
             color: darken(@white, 25);
         }
+
 
 
 
@@ -954,7 +957,8 @@ footer {
             margin-right: 0;
         }
 
-.blog-section {}
+.blog-section {
+}
 
     .blog-section__first-header {
         font-size: 40px;
@@ -990,9 +994,25 @@ footer {
         margin-bottom: 28px;
     }
 
+    .blog-section .page-content__content-left {
+        position: relative;
+        padding-bottom: 45px;
+    }
+
     .blog-section .sidebar {
         margin-top: 70px;
     }
+
+    .blog-section__loading-indicator {
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        display: none;
+    }
+
+        .ajax-spinner { 
+            margin: 15px auto;
+        }
 
 
 
