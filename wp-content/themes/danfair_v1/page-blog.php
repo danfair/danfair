@@ -28,7 +28,7 @@
                         };
                         // WP only puts first date if 2+ posts are on the same day
                         $date = get_the_date();
-                        echo "<h4>" . $date . "</h4>";
+                        echo "<h4 class='blog-section__post__date'>" . $date . "</h4>";
 
                         the_content();
                         if ($index != 1) : ?>
@@ -39,8 +39,8 @@
                 </div>
                 <?php endwhile; endif; wp_reset_query(); ?>
                 <div class="blog-section__loading-indicator">
-                <a class="ajax-spinner">Loading more posts... <img src="<?php bloginfo('template_directory'); ?>/img/ajax-spinner.gif" /></a>
-            </div>
+                    <a class="ajax-spinner">Loading more posts... <img src="<?php bloginfo('template_directory'); ?>/img/ajax-spinner.gif" /></a>
+                </div>
             </div> 
             <aside class="sidebar">
                 <h4>Search</h4>

@@ -14,7 +14,6 @@
                 type:'POST',
                 data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=more-posts', 
                 success: function(html){
-
                     
                     $(".page-content__content-left").append(html);
                     $(".blog-section__post__button.page-" + pageNumber).parents(".blog-section__post").each(function(index) {
@@ -23,17 +22,19 @@
                     }); 
                     
                     // add event listeners for loaded post buttons
-                    $(".blog-section__post__button.page-" + pageNumber).on("click", function(event) {
-                        event.preventDefault();
-                        var $that = $(this);
-                        togglePostView($that);
-                    }).hover(function(event) {
-                        var $that = $(this);
-                        buttonAnimate($that);
-                    }, function(event) {
-                        var $that = $(this);
-                        buttonRemoveAnimate($that);
-                    });
+                    $(".blog-section__post__button.page-" + pageNumber)
+                        .on("click", function(event) {
+                            event.preventDefault();
+                            var $that = $(this);
+                            togglePostView($that);
+                        })
+                        .hover(function(event) {
+                            var $that = $(this);
+                            buttonAnimate($that);
+                        }, function(event) {
+                            var $that = $(this);
+                            buttonRemoveAnimate($that);
+                        });
                 }
             });
             $(".blog-section__loading-indicator").fadeOut(1000);

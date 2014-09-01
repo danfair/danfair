@@ -19,7 +19,7 @@
         };
         // WP only puts first date if 2+ posts are on the same day
         $date = get_the_date();
-        echo "<h4>" . $date . "</h4>";
+        echo "<h4 class='blog-section__post__date'>" . $date . "</h4>";
 
         the_content(); 
     ?>

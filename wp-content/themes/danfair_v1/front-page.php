@@ -51,7 +51,7 @@
                             }
                             echo "</ul>";
                         }
-                        the_content(); 
+                        the_field('project-summary'); 
                     ?>
                     <a href="<?php the_permalink(); ?>" class="btn btn--orange">See project summary<div class="btn__arrow black right"></div></a>
                     <a href="<?php the_field('github-link'); ?>" class="btn btn--orange">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
