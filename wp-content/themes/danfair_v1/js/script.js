@@ -7,38 +7,88 @@
         $(".parallax-bg").css("top", -(scrolled * 0.2) + "px");
     }
 
-    function loadArticle(pageNumber) {
+    function loadPosts(pageNumber) {
         $(".blog-section__loading-indicator").fadeIn(100);
-            $.ajax({
-                url: "../wp-admin/admin-ajax.php",
-                type:'POST',
-                data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=more-posts', 
-                success: function(html){
-                    
-                    $(".page-content__content-left").append(html);
-                    $(".blog-section__post__button.page-" + pageNumber).parents(".blog-section__post").each(function(index) {
+        $.ajax({
+            url: "../wp-admin/admin-ajax.php",
+            type:'POST',
+            data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=more-posts', 
+            success: function(html){
+                
+                $(".page-content__content-left").append(html);
+                $(".blog-section__post__button.page-" + pageNumber).parents(".blog-section__post").each(function(index) {
+                    var $that = $(this);
+                    collapsePost($that);
+                }); 
+                
+                // add event listeners for loaded post buttons
+                $(".blog-section__post__button.page-" + pageNumber)
+                    .on("click", function(event) {
+                        event.preventDefault();
                         var $that = $(this);
-                        collapsePost($that);
-                    }); 
-                    
-                    // add event listeners for loaded post buttons
-                    $(".blog-section__post__button.page-" + pageNumber)
-                        .on("click", function(event) {
-                            event.preventDefault();
-                            var $that = $(this);
-                            togglePostView($that);
-                        })
-                        .hover(function(event) {
-                            var $that = $(this);
-                            buttonAnimate($that);
-                        }, function(event) {
-                            var $that = $(this);
-                            buttonRemoveAnimate($that);
-                        });
-                }
-            });
-            $(".blog-section__loading-indicator").fadeOut(1000);
+                        togglePostView($that);
+                    })
+                    .hover(function(event) {
+                        var $that = $(this);
+                        buttonAnimate($that);
+                    }, function(event) {
+                        var $that = $(this);
+                        buttonRemoveAnimate($that);
+                    });
+            }
+        });
+        $(".blog-section__loading-indicator").fadeOut(1000);
         return false;
+    }
+
+    function loadCarousel(postId, startAt) {
+        $.ajax({
+            url: "../../wp-admin/admin-ajax.php",
+            type:'POST',
+            data: "action=image_carousel&post_id="+ postId + '&template=images-carousel&start=' + startAt, 
+            success: function(html){
+                
+                $("body").append(html);  
+                centerCarousel();
+                
+                $(".carousel-button").click(function(event) {
+                    event.preventDefault(); 
+                    if ($(this).hasClass("previous")) {
+                        if ($(this).siblings(".carousel-images-list").find(".current").prev().is("li")) {
+                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").prev("li").fadeIn(1000).addClass("current");
+                        } else {
+                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
+                            $(".carousel-images-list li").last().fadeIn(1000).addClass("current");
+                        }
+                        centerCarousel();
+                    } else {
+                        if ($(this).siblings(".carousel-images-list").find(".current").next().is("li")) {
+                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").next("li").fadeIn(1000).addClass("current");
+                        } else {
+                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
+                            $(".carousel-images-list li").first().fadeIn(1000).addClass("current");
+                        }
+                        centerCarousel();
+                    }
+                });
+
+                $(".project-section__images-carousel__overlay").click(function(event) {
+                    $(".project-section__images-carousel").remove();
+                    $(this).remove();
+                });
+            }
+        });
+        return false;
+    }
+
+    function centerCarousel() {
+        windowHeight = $(window).outerHeight();
+        windowWidth = $(window).outerWidth();
+        imageHeight = $(".carousel-images-list li.current").outerHeight();
+        imageWidth = $(".carousel-images-list li.current").outerWidth();
+        $(".project-section__images-carousel").css({
+            top: (windowHeight - imageHeight) / 2
+        });
     }
 
     function buttonAnimate(that) {
@@ -250,6 +300,16 @@
             togglePostView(that);
         });
 
+        // image carousel on project pages
+        $(".project-preview-image").click(function(event) {
+            event.preventDefault(); 
+            var startAt = $(this).data("image-no");
+            var postId = $(".page-sub-header__text h1").data("post-id");
+            loadCarousel(postId, startAt);
+        });
+
+
+
         // on scroll events
         var isBlogPage = $(".blog-section").length > 0 ? true : false;
         var pageCounter = 2;
@@ -260,7 +320,7 @@
             if  (isBlogPage && $(window).scrollTop() === $(document).height() - $(window).height()) {
                 var hasLastPostSet = $(".blog-section__post").last().hasClass("last-set");
                 if (!hasLastPostSet) {
-                    loadArticle(pageCounter);
+                    loadPosts(pageCounter);
                 }
                 pageCounter++;
             }

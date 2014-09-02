@@ -51,22 +51,26 @@
     add_action('init', 'register_projects_post_type');
 
     // infinite scroll
-    function wp_infinitepaginate(){ 
+    function wp_infinitepaginate() { 
         $loopFile        = $_POST['loop_file'];
-        $paged           = $_POST['page_no'];
-        $posts_per_page  = 5;
-     
-        # Load the posts
-        query_posts(array('paged' => $paged )); 
+        // $paged           = $_POST['page_no'];
+        // $posts_per_page  = 5;
+
+        // query_posts(array('paged' => $paged )); 
         get_template_part( $loopFile );
-     
         exit;
     }
 
-    add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');           // for logged in user
+    add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');
     add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');
 
+    function wp_imagecarousel() {
+        $template_file = $_POST['template'];
+        get_template_part($template_file);
+        exit;
+    }
 
-
+    add_action('wp_ajax_image_carousel', 'wp_imagecarousel');
+    add_action('wp_ajax_nopriv_image_carousel', 'wp_imagecarousel');
 
 ?>

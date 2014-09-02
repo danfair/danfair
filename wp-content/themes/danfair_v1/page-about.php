@@ -9,9 +9,8 @@
     </section>
     <section class="page-content about-section">
         <div class="content-wrapper max-width-wrapper">
-            <h2>Meet me</h2>
+            <h2>Meet me</h2> 
             <div class="page-content__content-left">
-                
                 <?php the_content(); ?>
                 <h3>What I Enjoy</h3>
                 <?php the_field("what-i-enjoy"); ?>

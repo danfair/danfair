@@ -366,6 +366,7 @@ input {
 
     .btn--white:hover {
         text-decoration: none;
+        color: white;
     }
 
     .btn__arrow {
@@ -385,7 +386,7 @@ input {
             background-position: 0px -94px;
         }
         .btn__arrow.white.right {
-            background-position: 0px -117px;
+            background-position: 0px -121px;
         }
         .btn__arrow.black.down {
             background-position: 0px -6px;
@@ -531,7 +532,7 @@ a.df-logo {
 }
 
     .page-content h2 {
-        margin: 12px 0;
+        margin: 0 0 12px;
     }
 
     .page-content p:first-of-type {
@@ -1026,6 +1027,9 @@ footer {
 
     .project-images-list li {
         position: relative;
+        height: auto;
+        text-align: center;
+        overflow: auto;
     }
 
     .project-images-list li:not(:first-child) {
@@ -1047,15 +1051,102 @@ footer {
         max-width: 100%;
     }
 
-    .project-image-list__overlay {
+    .project-images-list__overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #222;
+        background-color: @darkgray;
         opacity: .6;
         z-index: 10;
+    }
+
+    .project-images-list__overlay:hover {
+        background-color: lighten(@darkgray, 20);
+    }
+
+    .project-images-list__button {
+        position: absolute;
+        z-index: 15;
+        width: auto;
+        margin: auto;
+        margin-top: 0 !important;
+        top: 50%; left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+
+    .project-section__images-carousel__overlay {
+        width: 100%;
+        height: 100%;
+        background-color: @darkgray;
+        z-index: 1000;
+        opacity: .75;
+        top: 0;
+        left: 0;
+        position: fixed;
+    }
+
+    .project-section__images-carousel {
+        
+        position: fixed;
+        background: white;
+        z-index: 2000;
+        width: 75%;
+        left: 50%;
+        margin: 0 0 0 -37.5%;
+        top: 0;
+        max-height: 85%;
+    }
+
+        .project-section__images-carousel ul {
+            overflow: auto;
+            position: relative;
+        }
+
+        .project-section__images-carousel li {
+            display: none;
+        }
+
+        .project-section__images-carousel .current {
+            display: block;
+        }
+
+            .project-section__images-carousel li img {
+                width: auto;
+                height: auto;
+                max-height: 90%;
+                max-width: 90%;
+                display: block;
+                margin: 25px auto;
+            }
+
+        .carousel-button {
+            width: 50px;
+            height: 100px;
+            background: @darkgray;
+            position: absolute;
+            opacity: 0.8;
+            color: white;
+            line-height: 100px;
+            text-align: center;
+            display: block;
+        }
+
+            .carousel-button.previous {
+                top: 40%;
+                left: 0;
+            }
+
+            .carousel-button.next {
+                top: 40%;
+                right: 0;
+            }
+
+    .project-section .sidebar .btn:first-of-type {
+        margin-right: 5%;
     }
 
 

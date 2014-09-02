@@ -4,14 +4,14 @@
 ?>
     <section class="page-sub-header project-bg">
         <div class="page-sub-header__text max-width-wrapper">
-            <h1><?php the_title(); ?></h1>
+            <h1 data-post-id="<?php the_ID(); ?>"><?php the_title(); ?></h1>
         </div>
     </section>
     
     <section class="page-content project-section">
         <div class="content-wrapper max-width-wrapper">
-            <div class="page-content__content-left">
-                <h2>Project Summary</h2>
+            <h2>Project Summary</h2>
+            <div class="page-content__content-left">  
                 <?php the_field('project-summary'); ?>
                 <h3>Technology Used</h3>
                 <?php the_field('technology-used'); ?>
@@ -19,26 +19,23 @@
                 <?php the_field('lessons-learned'); ?>
             </div>
             <aside class="sidebar">
-                <h4>Images</h4>
                 <?php
                     if (has_post_thumbnail()) {
-                        echo '<ul class="project-images-list"><li><div class="project-image-list__overlay"></div>';
+                        echo '<ul class="project-images-list"><li><div class="project-images-list__overlay"></div><a href="" class="btn btn--white project-images-list__button project-preview-image" data-image-no="0">See photos<div class="btn__arrow white right"></div></a>';
                         the_post_thumbnail();
                         echo '</li>';
                     }
                     if (get_field('image-1')) :
                 ?>
-                    <li><div class="project-image-list__overlay"></div><img class="project-preview-image" src="<?php the_field('image-1'); ?>"></li>
+                    <li><a href="" class="project-preview-image" data-image-no="1"><div class="project-images-list__overlay"></div><img src="<?php the_field('image-1'); ?>"></a></li>
                 <?php endif;
-
                     if (get_field('image-2')) :
                 ?>
-                    <li><div class="project-image-list__overlay"></div><img class="project-preview-image" src="<?php the_field('image-2'); ?>"></li>
+                    <li><a href="" class="project-preview-image" data-image-no="2"><div class="project-images-list__overlay"></div><img src="<?php the_field('image-2'); ?>"></a></li>
                 <?php endif;
-
                     if (get_field('image-3')) :
                 ?>
-                    <li><div class="project-image-list__overlay"></div><img class="project-preview-image" src="<?php the_field('image-3'); ?>"></li>
+                    <li><a href="" class="project-preview-image" data-image-no="3"><div class="project-images-list__overlay"></div><img src="<?php the_field('image-3'); ?>"></a></li>
                 <?php endif;
                 if (has_post_thumbnail()) {
                     echo '</ul>';
