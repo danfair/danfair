@@ -4,7 +4,7 @@
     $postId = $_POST['post_id'];
     $startAt = $_POST['start'];
     $args = array(
-        'p' => 35,
+        'p' => $postId,
         'posts_per_page' => 1,
         'post_type' => 'projects'
     );
@@ -53,6 +53,7 @@
     echo '</ul>'; 
     endwhile; endif; wp_reset_query();
 ?>
-<a href="" class="carousel-button previous"><</a>
-<a href="" class="carousel-button next">></a>
+<a href="" class="carousel-button previous"></a>
+<a href="" class="carousel-button next"></a>
+<a href="" class="carousel-exit"></a>
 </div>

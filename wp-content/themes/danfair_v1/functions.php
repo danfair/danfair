@@ -52,11 +52,7 @@
 
     // infinite scroll
     function wp_infinitepaginate() { 
-        $loopFile        = $_POST['loop_file'];
-        // $paged           = $_POST['page_no'];
-        // $posts_per_page  = 5;
-
-        // query_posts(array('paged' => $paged )); 
+        $loopFile = $_POST['loop_file'];
         get_template_part( $loopFile );
         exit;
     }
@@ -64,6 +60,7 @@
     add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');
     add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');
 
+    // image carousel on project pages
     function wp_imagecarousel() {
         $template_file = $_POST['template'];
         get_template_part($template_file);
@@ -72,5 +69,15 @@
 
     add_action('wp_ajax_image_carousel', 'wp_imagecarousel');
     add_action('wp_ajax_nopriv_image_carousel', 'wp_imagecarousel');
+
+    // filter search page content
+    function searchfilter($query) {
+        if ($query->is_search && !is_admin() ) {
+            $query->set('post_type',array('post', 'projects'));
+        }
+        return $query;
+    }
+add_filter('pre_get_posts','searchfilter');
+
 
 ?>

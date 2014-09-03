@@ -117,8 +117,8 @@ legend {
 /* local fonts */
 @font-face {
   font-family: 'Dense';
-  src: url('dense-regular-webfont.eot');
-  src: url('dense-regular-webfont.eot?#iefix') format('embedded-opentype'), url('dense-regular-webfont.woff') format('woff'), url('dense-regular-webfont.ttf') format('truetype'), url('dense-regular-webfont.svg#denseregular') format('svg');
+  src: url('fonts/dense-regular-webfont.eot');
+  src: url('fonts/dense-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/dense-regular-webfont.woff') format('woff'), url('fonts/dense-regular-webfont.ttf') format('truetype'), url('fonts/dense-regular-webfont.svg#denseregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -998,7 +998,7 @@ footer .df-logo {
 }
 .carousel-button {
   width: 50px;
-  height: 100px;
+  height: 75px;
   background: #222222;
   position: absolute;
   opacity: 0.8;
@@ -1010,10 +1010,24 @@ footer .df-logo {
 .carousel-button.previous {
   top: 40%;
   left: 0;
+  background: #222222 url(img/carousel_arrows_sprite.png) no-repeat -1px -51px;
+  background-size: cover;
 }
 .carousel-button.next {
   top: 40%;
   right: 0;
+  background: #222222 url(img/carousel_arrows_sprite.png) no-repeat 2px 8px;
+  background-size: cover;
+}
+.carousel-exit {
+  position: absolute;
+  right: 12.5px;
+  top: 12.5px;
+  display: block;
+  height: 25px;
+  width: 25px;
+  background: url(img/close_icon.png);
+  background-size: cover;
 }
 .project-section .sidebar .btn:first-of-type {
   margin-right: 5%;

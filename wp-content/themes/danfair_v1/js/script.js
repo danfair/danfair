@@ -53,20 +53,21 @@
                 
                 $(".carousel-button").click(function(event) {
                     event.preventDefault(); 
-                    if ($(this).hasClass("previous")) {
-                        if ($(this).siblings(".carousel-images-list").find(".current").prev().is("li")) {
-                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").prev("li").fadeIn(1000).addClass("current");
+                    var carouselButton = $(this);
+                    if (carouselButton.hasClass("previous")) {
+                        if (carouselButton.siblings(".carousel-images-list").find(".current").prev().is("li")) {
+                            carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").prev("li").fadeIn(150).addClass("current");
                         } else {
-                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
-                            $(".carousel-images-list li").last().fadeIn(1000).addClass("current");
+                            carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
+                            $(".carousel-images-list li").last().fadeIn(150).addClass("current");
                         }
                         centerCarousel();
                     } else {
-                        if ($(this).siblings(".carousel-images-list").find(".current").next().is("li")) {
-                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").next("li").fadeIn(1000).addClass("current");
+                        if (carouselButton.siblings(".carousel-images-list").find(".current").next().is("li")) {
+                            carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").next("li").fadeIn(150).addClass("current");
                         } else {
-                            $(this).siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
-                            $(".carousel-images-list li").first().fadeIn(1000).addClass("current");
+                            carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
+                            $(".carousel-images-list li").first().fadeIn(150).addClass("current");
                         }
                         centerCarousel();
                     }
@@ -75,6 +76,12 @@
                 $(".project-section__images-carousel__overlay").click(function(event) {
                     $(".project-section__images-carousel").remove();
                     $(this).remove();
+                });
+
+                $(".carousel-exit").click(function(event) {
+                    event.preventDefault();
+                    $(".project-section__images-carousel").remove();
+                    $(".project-section__images-carousel__overlay").remove();
                 });
             }
         });
@@ -207,22 +214,16 @@
         // show sticky nav bar on home page
         $(".see-work-button").waypoint(function(dir) {
             if (dir === "down") {
-                
                 $(".main-header").addClass("main-header--fixed").css("opacity", ".9").fadeIn(250);
             } else {
                 $(".main-header").removeClass("main-header--fixed").css("display", "none");  // no fade out because of fast scroll-ups yeah
             }
         });
 
-        $(".main-header_social-icons-list").on("click", function() {
-
-        });
-
         // sticky nav for non-home pages
-        $(".page-content").waypoint(function(dir) {
+        $(".page-sub-header__text").waypoint(function(dir) {
             if (dir === "down") {
-                
-                $(".main-header").addClass("main-header--fixed").css("opacity", ".9").fadeIn(250);
+                $(".main-header").addClass("main-header--fixed").fadeIn(250).css("opacity", ".9");
             } else {
                 $(".main-header").removeClass("main-header--fixed").css("opacity", "1");  // no fade out because of fast scroll-ups
             }
@@ -249,7 +250,6 @@
                 isError = true;
                 $(".contact-form__message textarea").attr("placeholder", "Surely you have something to say!").addClass("form-error-background");
             }
-
             
             // remove form if successful
             if (!isError) {
