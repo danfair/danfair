@@ -20,7 +20,7 @@
                     if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); 
                     $index = $posts->current_post + 1;
                 ?>
-                <div class="blog-section__post">
+                <div class="blog-section__post<?php if ($index == 1) {echo " latest-post";} ?>">
                     <h3<?php if ($index == 1) {echo " class='blog-section__first-header'";} ?>><?php the_title(); ?></h3>
                     <?php 
                         if (has_post_thumbnail()) {
@@ -43,30 +43,34 @@
                 </div>
             </div> 
             <aside class="sidebar">
-                <h4>Search</h4>
-                <?php get_search_form(); ?>
-                <h4>Popular categories</h4>
-                <?php 
-                    $args = array(
-                        'smallest'                  => 10, 
-                        'largest'                   => 10,
-                        'unit'                      => 'px', 
-                        'number'                    => 15,  
-                        'format'                    => 'list',
-                        'separator'                 => "\n",
-                        'orderby'                   => 'name', 
-                        'order'                     => 'RAND',
-                        'exclude'                   => null, 
-                        'include'                   => null, 
-                        'topic_count_text_callback' => default_topic_count_text,
-                        'link'                      => 'view', 
-                        'taxonomy'                  => 'post_tag', 
-                        'echo'                      => true,
-                        'child_of'                  => null
-                    ); 
+                <div class="sidebar__search-form">
+                    <h4>Search</h4>
+                    <?php get_search_form(); ?>
+                </div>
+                <div class="sidebar__categories">
+                    <h4>Popular categories</h4>
+                    <?php 
+                        $args = array(
+                            'smallest'                  => 10, 
+                            'largest'                   => 10,
+                            'unit'                      => 'px', 
+                            'number'                    => 15,  
+                            'format'                    => 'list',
+                            'separator'                 => "\n",
+                            'orderby'                   => 'name', 
+                            'order'                     => 'RAND',
+                            'exclude'                   => null, 
+                            'include'                   => null, 
+                            'topic_count_text_callback' => default_topic_count_text,
+                            'link'                      => 'view', 
+                            'taxonomy'                  => 'post_tag', 
+                            'echo'                      => true,
+                            'child_of'                  => null
+                        ); 
 
-                    wp_tag_cloud($args);
-                ?>
+                        wp_tag_cloud($args);
+                    ?>
+                </div>
             </aside>
         </div>
     </section>

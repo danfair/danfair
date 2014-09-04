@@ -11,13 +11,6 @@
     <section class="page-content project-section">
         <div class="content-wrapper max-width-wrapper">
             <h2>Project Summary</h2>
-            <div class="page-content__content-left">  
-                <?php the_field('project-summary'); ?>
-                <h3>Technology Used</h3>
-                <?php the_field('technology-used'); ?>
-                <h3>Lessons learned</h3>
-                <?php the_field('lessons-learned'); ?>
-            </div>
             <aside class="sidebar">
                 <?php
                     if (has_post_thumbnail()) {
@@ -44,6 +37,13 @@
                 <a href="<?php the_field('live-project-link') ?>" class="btn btn--orange">See live project<div class="btn__arrow black right"></div></a>
                     <a href="<?php the_field('github-link'); ?>" class="btn btn--orange">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
             </aside>
+            <div class="page-content__content-left">  
+                <?php the_field('project-summary'); ?>
+                <h3>Technology Used</h3>
+                <?php the_field('technology-used'); ?>
+                <h3>Lessons learned</h3>
+                <?php the_field('lessons-learned'); ?>
+            </div>
         </div>
     </section>
 <?php get_footer(); ?>

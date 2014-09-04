@@ -53,8 +53,10 @@
                         }
                         the_field('project-summary'); 
                     ?>
-                    <a href="<?php the_permalink(); ?>" class="btn btn--orange">See project summary<div class="btn__arrow black right"></div></a>
-                    <a href="<?php the_field('github-link'); ?>" class="btn btn--orange">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
+                    <div class="portfolio__project__buttons">
+                        <a href="<?php the_permalink(); ?>" class="btn btn--orange portfolio__project__summary-link">See project summary<div class="btn__arrow black right"></div></a>
+                        <a href="<?php the_field('github-link'); ?>" class="btn btn--orange portfolio__project__github-link">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
+                    </div>
                 </div>
                 
             </div>

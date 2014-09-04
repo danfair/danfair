@@ -11,7 +11,7 @@
     $isLastSet = ($posts->max_num_pages == $pageNumber ? true : false);
     if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); 
 ?>
-<div class="blog-section__post <?php if ($isLastSet) echo 'last-set'; ?>">
+<div class="blog-section__post close <?php if ($isLastSet) echo 'last-set'; ?>">
     <h3><?php the_title(); ?></h3>
     <?php 
         if (has_post_thumbnail()) {

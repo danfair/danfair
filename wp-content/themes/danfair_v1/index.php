@@ -13,7 +13,7 @@
         if (have_posts()) : while (have_posts()) : the_post(); ?>
         <h3><?php the_title(); ?></h3>
         <p><?php the_excerpt(); ?></p>
-        <a href="<?php the_permalink(); ?>">Read</a>
+        <a href="<?php the_permalink(); ?>" class="btn btn--orange">Read <div class="btn__arrow black right"></div></a>
     <?php endwhile; endif; wp_reset_query(); ?>
             </div>
             <aside class="sidebar">

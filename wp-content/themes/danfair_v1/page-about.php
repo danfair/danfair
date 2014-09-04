@@ -27,12 +27,14 @@
             </div>
             <aside class="sidebar">
                 <img src="<?php echo bloginfo('stylesheet_directory'); ?>/img/headshot.jpg" alt="Dan Fair" class="about-section__headshot">
-                <h4>Quick facts</h4>
-                <p>Semi-interesting fact about me</p>
-                <p>Semi-interesting fact about me</p>
-                <p>Semi-interesting fact about me</p>
-                <p>Semi-interesting fact about me</p>
-                <a href="<?php bloginfo('wpurl') ?>/contact" class="btn btn--orange">Contact me<div class="btn__arrow black right"></div></a>
+                <div class="about-section__quick-facts">
+                    <h4>Quick facts</h4>
+                    <p>Semi-interesting fact about me</p>
+                    <p>Semi-interesting fact about me</p>
+                    <p>Semi-interesting fact about me</p>
+                    <p>Semi-interesting fact about me</p>
+                    <a href="<?php bloginfo('wpurl') ?>/contact" class="btn btn--orange">Contact me<div class="btn__arrow black right"></div></a>
+                </div>
             </aside>
         </div><!-- end of content-wrapper -->
     </section>
