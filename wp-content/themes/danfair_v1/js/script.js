@@ -89,7 +89,7 @@
         // set max-height for portfolio thumbnails on front page
         sizeHomeImages: function() {
             $(".portfolio__project__text").each(function(i) {
-                var portfolioTextHeight = $(this).outerHeight();
+                var portfolioTextHeight = $(this).innerHeight();
                 $(this).siblings().find(".attachment-post-thumbnail").css("max-height", portfolioTextHeight);
             });
         }

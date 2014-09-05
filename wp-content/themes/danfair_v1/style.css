@@ -971,7 +971,7 @@ footer .df-logo {
   margin-right: 5%;
   margin-top: 5%;
   float: left;
-  max-height: 75px;
+  max-height: 60px;
   overflow-y: hidden;
 }
 .project-images-list li:last-child {
@@ -1055,15 +1055,14 @@ footer .df-logo {
   line-height: 100px;
   text-align: center;
   display: block;
+  top: 45%;
 }
 .carousel-button.previous {
-  top: 40%;
   left: 0;
   background: #222222 url(img/carousel_arrows_sprite.png) no-repeat -1px -26px;
   background-size: cover;
 }
 .carousel-button.next {
-  top: 40%;
   right: 0;
   background: #222222 url(img/carousel_arrows_sprite.png) no-repeat 2px 5px;
   background-size: cover;
@@ -1121,9 +1120,18 @@ footer .df-logo {
   }
 }
 @media (max-width: 775px) {
+  h1 {
+    font-size: 48px;
+  }
   .page-content__content-left {
     float: none;
     width: 100%;
+  }
+  .page-sub-header {
+    height: 100px;
+  }
+  .page-sub-header__text {
+    margin-top: 25px;
   }
   .hero-area__text-container {
     width: 80%;
@@ -1153,6 +1161,9 @@ footer .df-logo {
     width: 100%;
     text-align: center;
     overflow: auto;
+  }
+  .portfolio__project__text .btn:nth-child(2) {
+    margin-left: 0;
   }
   .wpcf7 {
     float: none;
@@ -1189,13 +1200,25 @@ footer .df-logo {
     margin-right: 4.5%;
     float: left;
   }
+  .project-section .sidebar {
+    text-align: center;
+  }
   .project-section .sidebar .btn,
-  .project-section .sidebar .btn:first-of-type {
-    margin: 16px 4.5%;
+  .project-section .sidebar .btn:first-of-type:not(.project-preview-image) {
+    margin: 0 4.5% 16px;
     display: inline-block;
   }
   .project-images-list {
     margin-bottom: 4.5%;
+  }
+  .project-images-list li:not(:first-child) {
+    max-height: 120px;
+  }
+  .carousel-exit {
+    right: 7.5px;
+    top: 7.5px;
+    height: 15px;
+    width: 15px;
   }
   .blog-section__post:not(.latest-post) p.close:first-of-type {
     float: none;
@@ -1215,6 +1238,15 @@ footer .df-logo {
   }
 }
 @media (max-width: 600px) {
+  h1 {
+    font-size: 36px;
+  }
+  .page-sub-header {
+    height: 80px;
+  }
+  .page-sub-header__text {
+    margin-top: 21.5px;
+  }
   .hero-area__text-container h1 {
     font-size: 68px;
   }
