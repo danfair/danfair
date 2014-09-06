@@ -63,6 +63,18 @@
             });
         },
 
+        toggleMobileMenu: function() {
+            $(".main-nav__mobile-menu").click(function(event) {
+                event.preventDefault();
+                if ($(this).siblings(".main-header__social-icons-list").hasClass("menu-slide-in")) {
+                    $("#menu-menu-1, #menu-menu-2, .main-header__social-icons-list").removeClass("menu-slide-in").addClass("menu-slide-out");
+                } else {
+                    $("#menu-menu-1, #menu-menu-2, .main-header__social-icons-list").removeClass("menu-slide-out").addClass("menu-slide-in");
+                }
+                
+            });
+        }
+
     };
 
     var heroArea = {
@@ -206,7 +218,6 @@
                 postButton.siblings("p, .tags-list, .attachment-post-thumbnail").removeClass("close").addClass("open");
             });
             postButton.addClass("btn--right");
-            $(".attachment-post-thumbnail").css("display", "block");
         },
 
         hide: function(postButton) {
@@ -312,6 +323,8 @@
             var $button = $(this);
             button.removeAnimate($button);
         });
+
+        navigation.toggleMobileMenu();
         
         // home-specific setup
         if (page.isHome()) {

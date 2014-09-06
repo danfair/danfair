@@ -33,6 +33,11 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
     -o-transition: @property @length;
 }
 
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+    -webkit-animation: @name @duration @delay @ease;
+    animation: @name @duration @delay @ease;
+}
+
 /* local fonts */
 @font-face {
     font-family: 'Dense';
@@ -163,8 +168,7 @@ input {
 
     /* button animations */
     .bounce-down {
-        animation: bounceDown 1s ease-in-out infinite;
-        -webkit-animation: bounceDown 1s ease-in-out infinite;
+        .animation(bounceDown, 1s, 0, ease-in-out infinite);
     }
 
         @-webkit-keyframes bounceDown {
@@ -207,8 +211,7 @@ input {
         }
 
     .bounce-up {
-        animation: bounceUp 1s ease-in-out infinite;
-        -webkit-animation: bounceUp 1s ease-in-out infinite;
+        .animation(bounceUp, 1s, 0, ease-in-out infinite);
     }
 
         @-webkit-keyframes bounceUp {
@@ -251,8 +254,7 @@ input {
         }
 
     .bounce-right {
-        animation: bounceRight 1s ease-in-out infinite;
-        -webkit-animation: bounceRight 1s ease-in-out infinite;
+        .animation(bounceRight, 1s, 0, ease-in-out infinite);
     }
 
         @-webkit-keyframes bounceRight {
@@ -264,18 +266,6 @@ input {
             }
             100% {
                 -webkit-transform:translateX(0px);
-            }
-        }
-
-        @-moz-keyframes bounceRight {
-            0% {
-                -moz-transform:translateX(0px);
-            }
-            50% {
-                -moz-transform:translateX(3px);
-            }
-            100% {
-                -moz-transform:translateX(0px);
             }
         }
 
@@ -407,6 +397,17 @@ a.df-logo {
     height: 70px;
     margin: 0 auto;
 }
+
+    .main-nav__mobile-menu {
+        display: none;
+        width: 35px;
+        height: 35px;
+        float: right;
+        background: url(img/menu_icon.svg) no-repeat 50% 50%;
+        background-size: 35px;
+        margin-top: 17.5px;
+        cursor: pointer;
+    }
 
     .main-nav .df-logo {
         line-height: 42px;
@@ -973,6 +974,10 @@ footer {
         margin-bottom: 28px;
     }
 
+        .blog-section__post .attachment-post-thumbnail.open {
+            display: block;
+        }
+
         .blog-section__post h3 {
             margin-top: 0;
         }
@@ -1378,6 +1383,96 @@ footer {
     h1 {
         font-size: 36px;
     }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    .main-nav__mobile-menu {
+        display: block;
+    }
+
+    .main-nav #menu-menu-1, .main-nav #menu-menu-2 {
+        position: absolute;
+        top: 70px;
+        right: -500px;
+    }
+
+        .main-nav #menu-menu-1 .menu-item, .main-nav #menu-menu-2 .menu-item {
+            float: none;
+            display: block;
+            background: @darkgray;
+            margin-right: 0;
+            border-bottom: @lightgray 1px solid;
+        }
+
+        .main-nav #menu-menu-1 .menu-item a, .main-nav #menu-menu-2 .menu-item a {
+            display: block;
+            padding: 0 50px;
+        }
+
+        .main-nav .main-header__social-icons-list {
+            position: absolute;
+            right: 0;
+            top: 354px;   /* 4px for borders */
+            background: @darkgray;
+            width: 108px;
+            padding: 0 28.5px;
+            right: -500px;
+        }
+
+        @-webkit-keyframes menuSlideIn {
+            80% {
+                right: 10px;
+            }
+            100% {
+                right: 0;
+            }
+        }
+
+
+        @keyframes menuSlideIn {
+            80% {
+                right: 10px;
+            }
+            100% {
+                right: 0;
+            }
+        }
+
+        @-webkit-keyframes menuSlideOut {
+            100% {
+                right: -500px;
+            }
+        }
+
+        @keyframes menuSlideOut {
+            100% {
+                right: -500px;
+            }
+        }
+
+        .menu-slide-in {
+            -webkit-animation: menuSlideIn .3s 0 ease-in-out;
+            animation: menuSlideIn .4s ease-in-out;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        .menu-slide-out {
+            -webkit-animation: menuSlideOut .3s 0 ease-in-out;
+            animation: menuSlideOut .4s ease-in-out;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
 
     .page-sub-header {
         height: 80px;

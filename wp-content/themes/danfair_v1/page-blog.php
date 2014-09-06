@@ -31,9 +31,10 @@
                         echo "<h4 class='blog-section__post__date'>" . $date . "</h4>";
 
                         the_content();
-                        if ($index != 1) : ?>
+                        if ($index != 1) : 
+                    ?>
                         <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
-                    <? endif;
+                    <?php endif;
                         the_tags('<ul class="tags-list"><li class="tags-list__tag">','</li><li class="tags-list__tag">','</li></ul>');
                     ?>
                 </div>
