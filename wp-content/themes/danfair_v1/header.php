@@ -20,7 +20,7 @@
                 <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
                 <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
             </ul>
-            <a class="main-nav__mobile-menu"></a>
+            <!-- <a class="main-nav__mobile-menu"></a> -->
         </nav>  
     </header>
     
