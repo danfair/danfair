@@ -128,32 +128,30 @@
 
     };
 
-    // image carousel on project pages
-            // $(".project-preview-image").click(function(event) {
-            //     event.preventDefault(); 
-            //     var startAt = $(this).data("image-no");
-            //     var postId = $(".page-sub-header__text h1").data("post-id");
-            //     carousel.load(postId, startAt);
-            // });
-
     var Carousel = {
 
         init: function() {
-            this.$projectPreviewImage = $(".project-preview-image");
-            this.$carousel = $(".project-section__images-carousel");
+            this.$projectPreviewImages = $(".project-preview-image");
             this.$pageHeader = $(".page-sub-header__text h1");
             this.initEvents();
+            // this.$carousel = $(".project-section__images-carousel");
         }, 
 
         initEvents: function() {
-            this.$projectPreviewImage.on("click", this.loadCarousel.bind(this));
+            this.$projectPreviewImages.on("click", this.loadCarousel.bind(this));
         },
 
         loadCarousel: function(e) {
-            console.log(e);
-            var startAt = $(e.target).data('image-no');
+            e.preventDefault();
+            var $target = $(e.target);
             var postId = this.$pageHeader.data('post-id');
-            console.log(startAt + "    " + postId);
+            var startAt = "";
+            
+            if ($target.is("a")) {
+                startAt = $target.data('image-no');
+            } else {
+                startAt = $target.parents(".project-preview-image").data('image-no');
+            }
 
             $.ajax({
                 url: "../../wp-admin/admin-ajax.php",
@@ -162,40 +160,49 @@
                 success: function(html){
                     
                     $("body").append(html);  
-                    carousel.center();
+                    Carousel.centerCarousel();
+                    var $carousel = $(".project-section__images-carousel");
+                    var $carouselOverlay = $(".project-section__images-carousel__overlay");
                     
                     // add new event listeners
                     $(".carousel-button").click(function(event) {
                         event.preventDefault(); 
-                        var carouselButton = $(this);
-                        if (carouselButton.hasClass("previous")) {
-                            if (carouselButton.siblings(".carousel-images-list").find(".current").prev().is("li")) {
-                                carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").prev("li").fadeIn(150).addClass("current");
+                        var $carouselButton = $(this);
+                        var $imagesList = $(".carousel-images-list");
+                        var $currentImage = $(".carousel-images-list").find(".current");
+                        var $prevImage = $currentImage.prev();
+                        var $nextImage = $currentImage.next();
+
+                        if ($carouselButton.hasClass("previous")) {
+                            if ($currentImage.prev().is("li")) {
+                                $currentImage.fadeOut(0).removeClass("current");
+                                $prevImage.fadeIn(150).addClass("current");
                             } else {
-                                carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
+                                $currentImage.fadeOut(0).removeClass("current");
                                 $(".carousel-images-list li").last().fadeIn(150).addClass("current");
                             }
-                            carousel.center();
+                            Carousel.centerCarousel();
                         } else {
-                            if (carouselButton.siblings(".carousel-images-list").find(".current").next().is("li")) {
-                                carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").next("li").fadeIn(150).addClass("current");
+                            if ($nextImage.is("li")) {
+                                $currentImage.fadeOut(0).removeClass("current");
+                                $nextImage.fadeIn(150).addClass("current");
                             } else {
-                                carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
+                                $currentImage.fadeOut(0).removeClass("current");
                                 $(".carousel-images-list li").first().fadeIn(150).addClass("current");
                             }
-                            carousel.center();
+                            Carousel.centerCarousel();
                         }
                     });
 
-                    $(".project-section__images-carousel__overlay").click(function(event) {
-                        $(".project-section__images-carousel").remove();
-                        $(this).remove();
+                    $carouselOverlay.click(function(event) {
+                        $carousel.remove();
+                        $carouselOverlay.remove();
                     });
 
                     $(".carousel-exit").click(function(event) {
                         event.preventDefault();
-                        $(".project-section__images-carousel").remove();
-                        $(".project-section__images-carousel__overlay").remove();
+                        $carousel.remove();
+                        $carouselOverlay.remove();
                     });
                 }
             });
@@ -203,70 +210,12 @@
 
         centerCarousel: function() {
             var windowHeight = page.win.outerHeight();
-            var imageHeight = this.$carousel.outerHeight();
-            var topValue = (windowHeight - imageHeight) / 2;
-            this.$carousel.css("top", topValue);
+            var carousel = $(".project-section__images-carousel");
+            var topValue = (windowHeight - carousel.outerHeight()) / 2;
+            carousel.css("top", topValue);
         }
 
     };
-
-    // var carousel = {
-        
-    //     // load: function(postId, startAt) {
-    //     //     $.ajax({
-    //     //         url: "../../wp-admin/admin-ajax.php",
-    //     //         type:'POST',
-    //     //         data: "action=image_carousel&post_id="+ postId + '&template=images-carousel&start=' + startAt, 
-    //     //         success: function(html){
-                    
-    //     //             $("body").append(html);  
-    //     //             carousel.center();
-                    
-    //     //             // add new event listeners
-    //     //             $(".carousel-button").click(function(event) {
-    //     //                 event.preventDefault(); 
-    //     //                 var carouselButton = $(this);
-    //     //                 if (carouselButton.hasClass("previous")) {
-    //     //                     if (carouselButton.siblings(".carousel-images-list").find(".current").prev().is("li")) {
-    //     //                         carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").prev("li").fadeIn(150).addClass("current");
-    //     //                     } else {
-    //     //                         carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
-    //     //                         $(".carousel-images-list li").last().fadeIn(150).addClass("current");
-    //     //                     }
-    //     //                     carousel.center();
-    //     //                 } else {
-    //     //                     if (carouselButton.siblings(".carousel-images-list").find(".current").next().is("li")) {
-    //     //                         carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current").next("li").fadeIn(150).addClass("current");
-    //     //                     } else {
-    //     //                         carouselButton.siblings(".carousel-images-list").find(".current").fadeOut(0).removeClass("current");
-    //     //                         $(".carousel-images-list li").first().fadeIn(150).addClass("current");
-    //     //                     }
-    //     //                     carousel.center();
-    //     //                 }
-    //     //             });
-
-    //     //             $(".project-section__images-carousel__overlay").click(function(event) {
-    //     //                 $(".project-section__images-carousel").remove();
-    //     //                 $(this).remove();
-    //     //             });
-
-    //     //             $(".carousel-exit").click(function(event) {
-    //     //                 event.preventDefault();
-    //     //                 $(".project-section__images-carousel").remove();
-    //     //                 $(".project-section__images-carousel__overlay").remove();
-    //     //             });
-    //     //         }
-    //     //     });
-    //     // }, 
-
-    //     center: function() {
-    //         var windowHeight = page.win.outerHeight();
-    //         var imageHeight = $(".project-section__images-carousel").outerHeight();
-    //         var topValue = (windowHeight - imageHeight) / 2;
-    //         $(".project-section__images-carousel").css("top", topValue);
-    //     }
-
-    // };
 
     var Button = {
 
@@ -451,6 +400,7 @@
     //
     $(document).ready(function() {
 
+        // all pages
         Button.init();
         Navigation.init();
         
@@ -477,13 +427,7 @@
 
         } else if (page.isProject()) {
 
-            // image carousel on project pages
-            // $(".project-preview-image").click(function(event) {
-            //     event.preventDefault(); 
-            //     var startAt = $(this).data("image-no");
-            //     var postId = $(".page-sub-header__text h1").data("post-id");
-            //     carousel.load(postId, startAt);
-            // });
+
 
             Carousel.init();
 
