@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/df_favicon.png">
     <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title( '' ); ?></title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic, 400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_directory'); ?>/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_directory'); ?>/style.min.css">
 
     <?php wp_head(); ?>
 </head> 
@@ -20,7 +20,7 @@
                 <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
                 <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
             </ul>
-            <!-- <a class="main-nav__mobile-menu"></a> -->
+            <a class="main-nav__mobile-menu"></a>
         </nav>  
     </header>
     

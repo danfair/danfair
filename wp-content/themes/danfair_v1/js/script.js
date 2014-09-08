@@ -3,7 +3,7 @@
 
     "use strict";
 
-    // page identifier global vars
+    // page template identifier global vars
     var page = (function() {
         var pageObj = {};
 
@@ -93,6 +93,7 @@
             this.$heroAreaTextContainer = $(".hero-area__text-container");
             this.$parallaxBackground = $(".parallax-bg");
             this.initDom();
+            this.initEvents();
         },
 
         initDom: function() {
@@ -105,7 +106,11 @@
             this.$heroAreaTextContainer.css("padding-top", ((heroHeight - heroAreaTextHeight) / 2) - 70);
         },
 
-        parallaxEffect: function() {
+        initEvents: function() {
+            page.win.scroll(this.parallaxEffect.bind(this));
+        },
+
+        parallaxEffect: function(e) {
             var scrolled = page.win.scrollTop();
             this.$parallaxBackground.css("top", -(scrolled * 0.2) + "px");
         }
@@ -116,6 +121,10 @@
         init: function() {
             // get the text heights of each project
             this.$projectText = $(".portfolio__project__text");
+            this.initDom();
+        },
+
+        initDom: function() {
             this.sizeProjectImages();
         },
 
@@ -134,7 +143,6 @@
             this.$projectPreviewImages = $(".project-preview-image");
             this.$pageHeader = $(".page-sub-header__text h1");
             this.initEvents();
-            // this.$carousel = $(".project-section__images-carousel");
         }, 
 
         initEvents: function() {
@@ -165,8 +173,8 @@
                     var $carouselOverlay = $(".project-section__images-carousel__overlay");
                     
                     // add new event listeners
-                    $(".carousel-button").click(function(event) {
-                        event.preventDefault(); 
+                    $(".carousel-button").click(function(e) {
+                        e.preventDefault(); 
                         var $carouselButton = $(this);
                         var $imagesList = $(".carousel-images-list");
                         var $currentImage = $(".carousel-images-list").find(".current");
@@ -175,32 +183,32 @@
 
                         if ($carouselButton.hasClass("previous")) {
                             if ($currentImage.prev().is("li")) {
-                                $currentImage.fadeOut(0).removeClass("current");
+                                $currentImage.hide().removeClass("current");
                                 $prevImage.fadeIn(150).addClass("current");
                             } else {
-                                $currentImage.fadeOut(0).removeClass("current");
+                                $currentImage.hide().removeClass("current");
                                 $(".carousel-images-list li").last().fadeIn(150).addClass("current");
                             }
                             Carousel.centerCarousel();
                         } else {
                             if ($nextImage.is("li")) {
-                                $currentImage.fadeOut(0).removeClass("current");
+                                $currentImage.hide().removeClass("current");
                                 $nextImage.fadeIn(150).addClass("current");
                             } else {
-                                $currentImage.fadeOut(0).removeClass("current");
+                                $currentImage.hide().removeClass("current");
                                 $(".carousel-images-list li").first().fadeIn(150).addClass("current");
                             }
                             Carousel.centerCarousel();
                         }
                     });
 
-                    $carouselOverlay.click(function(event) {
+                    $carouselOverlay.click(function(e) {
                         $carousel.remove();
                         $carouselOverlay.remove();
                     });
 
-                    $(".carousel-exit").click(function(event) {
-                        event.preventDefault();
+                    $(".carousel-exit").click(function(e) {
+                        e.preventDefault();
                         $carousel.remove();
                         $carouselOverlay.remove();
                     });
@@ -278,28 +286,29 @@
         togglePostView: function(e) {
             e.preventDefault();
             var hasDownClass = $(e.target).children(".btn__arrow").hasClass("down");
+            var $target = $(e.target);
 
             if (hasDownClass) {
-                $(e.target).html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up");
-                $(e.target).siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail").fadeIn(200, function() {
-                    $(e.target).siblings("p, .tags-list, .attachment-post-thumbnail").removeClass("close").addClass("open");
+                $target.html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up");
+                $target.siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail").fadeIn(200, function() {
+                    $target.siblings("p, .tags-list, .attachment-post-thumbnail").removeClass("close").addClass("open");
                 });
-                $(e.target).addClass("btn--right");
+                $target.addClass("btn--right");
             } else {
-                $(e.target).html('See more<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("down");
+                $target.html('See more<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("down");
 
-                $(e.target).siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail").fadeOut(200, function() {
-                    $(e.target).siblings("p, .tags-list, .attachment-post-thumbnail").removeClass("open").addClass("close");
+                $target.siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail").fadeOut(200, function() {
+                    $target.siblings("p, .tags-list, .attachment-post-thumbnail").removeClass("open").addClass("close");
                 });
-                $(e.target).removeClass("btn--right");
-                $(e.target).parents(".blog-section__post .open").removeClass("open").addClass("close");
+                $target.removeClass("btn--right");
+                $target.parents(".blog-section__post .open").removeClass("open").addClass("close");
             }
         },
 
         loadMorePosts: function(pageNumber) {
 
             var hasLastPostSet = $(".blog-section__post").last().hasClass("last-set");
-            if (!hasLastPostSet && ($(window).scrollTop() === $(document).height() - page.win.height())) {
+            if (!hasLastPostSet && page.isBlog() && (page.win.scrollTop() === $(document).height() - page.win.height())) {
                 this.$loadingSpinner.fadeIn(100);
                 $.ajax({
                     url: "../wp-admin/admin-ajax.php",
@@ -397,41 +406,23 @@
     };
 
 
-    //
+    // //
     $(document).ready(function() {
 
         // all pages
         Button.init();
+        Portfolio.init();
+        ContactForm.init();
+        Blog.init();
+        Carousel.init();
         Navigation.init();
-        
-        // home-specific setup
+
+        // home page
         if (page.isHome()) {
-
             HeroArea.init();
-            Portfolio.init();
-            
         }
 
-        // other pages setup
-        if (page.isContact()) {
-
-            ContactForm.init();
         
-        } else if (page.isBlog()) {
-
-            Blog.init();
-              
-        } else if (page.isAbout()) {
-
-            
-
-        } else if (page.isProject()) {
-
-
-
-            Carousel.init();
-
-        }
     });
 
 })(jQuery);

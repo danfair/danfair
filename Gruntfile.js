@@ -50,6 +50,18 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      my_target: {
+        files: [{
+          expand: true,
+          cwd: 'wp-content/themes/danfair_v1/',
+          src: ['*.css'],
+          dest: 'wp-content/themes/danfair_v1/',
+          ext: '.min.css'
+        }]
+      }
+    },
+
     watch: {
         scripts: {
           files: '<%= uglify.build.src %>',
@@ -58,6 +70,10 @@ module.exports = function(grunt) {
         css: {
           files: 'wp-content/themes/danfair_v1/style.less',
           tasks: 'less'
+        },
+        cssmin: {
+          files: 'wp-content/themes/danfair_v1/style.css',
+          tasks: 'cssmin'
         }
     }
   });
@@ -67,9 +83,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default task.
-  grunt.registerTask('default', ['uglify', 'less', 'watch']);
+  grunt.registerTask('default', ['uglify', 'less', 'watch', 'cssmin']);
 
 
 };

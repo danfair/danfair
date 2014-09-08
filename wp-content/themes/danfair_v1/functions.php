@@ -11,7 +11,7 @@
     function register_custom_script() {
         wp_enqueue_script(
             'custom-script',
-            get_stylesheet_directory_uri() . '/js/script.js',
+            get_stylesheet_directory_uri() . '/js/global.min.js',
             array( 'jquery' )
         );
     }
