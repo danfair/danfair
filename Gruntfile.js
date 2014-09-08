@@ -38,11 +38,6 @@ module.exports = function(grunt) {
     },
 
     less: {
-      development: {
-        files: {
-          'wp-content/themes/danfair_v1/style.css': 'wp-content/themes/danfair_v1/style.less'
-        }
-      },
       production: {
         files: {
           'wp-content/themes/danfair_v1/style.css': 'wp-content/themes/danfair_v1/style.less'
@@ -55,7 +50,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'wp-content/themes/danfair_v1/',
-          src: ['*.css'],
+          src: ['style.css'],
           dest: 'wp-content/themes/danfair_v1/',
           ext: '.min.css'
         }]

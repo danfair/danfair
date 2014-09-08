@@ -26,7 +26,7 @@
                 </div>
             </div>
             <aside class="sidebar">
-                <img src="<?php echo bloginfo('stylesheet_directory'); ?>/img/headshot.png" alt="Dan Fair" class="about-section__headshot">
+                <img src="<?php echo bloginfo('stylesheet_directory'); ?>/img/headshot.jpg" alt="Dan Fair" class="about-section__headshot">
                 <div class="about-section__quick-facts">
                     <h4>Quick facts</h4>
                     <p>Semi-interesting fact about me</p>
