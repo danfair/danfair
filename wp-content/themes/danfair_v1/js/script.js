@@ -268,8 +268,8 @@
         init: function() {
             this.$postSubContent = $("p, .tags-list, .attachment-post-thumbnail");
             this.$postButton = $(".blog-section__post__button");
-            this.$loadingSpinner = $(".blog-section__loading-indicator");
-            this.$documentHeight = $(document).height();
+            this.$morePostsButton = $(".more-posts-btn");
+            this.$loadingSpinner = $(".ajax-spinner");
             this.pageNumber = 2; 
             this.initDom();
             this.initEvents();
@@ -281,7 +281,7 @@
 
         initEvents: function() {
             this.$postButton.on("click", this.togglePostView.bind(this));
-            page.win.scroll(this.loadMorePosts.bind(this)); 
+            this.$morePostsButton.on("click", this.loadMorePosts.bind(this));
         },
 
         togglePostView: function(e) {
@@ -306,11 +306,13 @@
             }
         },
 
-        loadMorePosts: function(pageNumber) {
-
-            var hasLastPostSet = $(".blog-section__post").last().hasClass("last-set");
-            if (!hasLastPostSet && page.isBlog() && (page.win.scrollTop() === $(document).height() - page.win.height())) {
+        loadMorePosts: function(e) {
+            e.preventDefault();
+            
+            if (page.isBlog()) {
+                this.$morePostsButton.hide();
                 this.$loadingSpinner.fadeIn(100);
+                
                 $.ajax({
                     url: "../wp-admin/admin-ajax.php",
                     type:'POST',
@@ -333,12 +335,22 @@
                                 Button.stopAnimateButton(e);
 
                             });   
+
+                        var hasLastPostSet = $(".blog-section__post").last().hasClass("last-set");
+                        console.log(hasLastPostSet);
+                        if (hasLastPostSet) { $(".more-posts-btn").remove(); }
                     }
                 });
-                this.$loadingSpinner.fadeOut(1000);
+                this.$loadingSpinner.fadeOut(100);
+                this.$morePostsButton.fadeIn(500);
                 this.pageNumber++;
-                return false;
             }
+
+
+        },
+
+        removeMorePostsButton: function() {
+            this.$morePostsButton.remove();
         }
 
     };
