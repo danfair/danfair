@@ -281,13 +281,13 @@
 
         initEvents: function() {
             this.$postButton.on("click", this.togglePostView.bind(this));
-            page.win.scroll(this.loadMorePosts.bind(this));    // should this be here?
+            page.win.scroll(this.loadMorePosts.bind(this)); 
         },
 
         togglePostView: function(e) {
             e.preventDefault();
-            var hasDownClass = $(e.target).children(".btn__arrow").hasClass("down");
-            var $target = $(e.target);
+            var $target = $(e.target).is("a") ? $(e.target) : $(e.target).parents(".btn");
+            var hasDownClass = $target.children(".btn__arrow").hasClass("down");
 
             if (hasDownClass) {
                 $target.html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up");
