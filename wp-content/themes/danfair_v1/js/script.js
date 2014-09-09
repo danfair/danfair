@@ -3,51 +3,53 @@
 
     "use strict";
 
-    // page template identifier global vars
-    var page = (function() {
-        var pageObj = {};
+    var Page = {
+        
+        init: function() {
+            this.$win = $(window);
+            this.bodyClass = $("body").data('page-id');
+            this.determinePageTemplate(this.bodyClass);
+        },
 
-        pageObj.isHome = function() {
-            return $(".hero-area").length > 0 ? true : false;
-        };
+        determinePageTemplate: function(bodyClass) {
+            switch(bodyClass) {
 
-        pageObj.isBlog = function() {
-            return $(".blog-section").length > 0 ? true : false;
-        };
+                case 'front-page':
+                    this.isHome = true;
+                    break;
+                case 'blog-page':
+                    this.isBlog = true;
+                    break;
+                case 'about-page':
+                    this.isAbout = true;
+                    break;
+                case 'contact-page':
+                    this.isContact = true;
+                    break;
+                case 'project-page':
+                    this.isProject = true;
+                    break;
+                default:
+                    this.isOther = true;
+            }
+        }
 
-        pageObj.isContact = function() {
-            return $(".contact-section").length > 0 ? true : false;
-        };
-
-        pageObj.isAbout = function() {
-            return $(".about-section").length > 0 ? true : false;
-        };
-
-        pageObj.isProject = function() {
-            return $(".project-section").length > 0 ? true : false;
-        };
-
-        pageObj.win = $(window);
-
-        return pageObj;
-
-    }());
+    };
 
     var Navigation = {
 
         init: function() {
             this.$mainHeader = $(".main-header");
             this.$frontPageNav = $(".front-page-nav");
-            this.$navAnchorLink = $(".front-page-nav li.menu-item:first-child a");
+            this.$mobileMenu = $(".main-nav__mobile-menu");  // more than one menu
+            this.$navAnchorLink = this.$frontPageNav.find("li.menu-item:first-child a");
             this.$heroButton = $(".see-work-button");
-            this.$mobileMenu = $(".main-nav__mobile-menu");
-            this.isHomePage = $(".hero-area").length > 0 ? true : false;
             this.initEvents();
         },
 
         initEvents: function() {
 
-            if (this.isHomePage) { 
+            if (Page.isHome) { 
                 this.swapHomeMenu();
                 this.$heroButton.waypoint(this.handleStickyNav.bind(this));
                 this.$navAnchorLink.on("click", this.smoothScroll.bind(this)); 
@@ -78,6 +80,7 @@
 
         toggleMobileMenu: function(e) {
             e.preventDefault();
+            console.log("fired");
             if (this.$mobileMenu.siblings(".main-header__social-icons-list").hasClass("menu-slide-in")) {
                 $("#menu-menu-1, #menu-menu-2, .main-header__social-icons-list").removeClass("menu-slide-in").addClass("menu-slide-out");
             } else {
@@ -89,18 +92,17 @@
     var HeroArea = {
 
         init: function() {
-            this.$mainNav = $(".main-nav");
+        
             this.$heroArea = $(".hero-area");
-            this.$heroAreaTextContainer = $(".hero-area__text-container");
-            this.$parallaxBackground = $(".parallax-bg");
+            this.$heroAreaTextContainer = this.$heroArea.find(".hero-area__text-container");
+            this.$parallaxBackground = this.$heroArea.find(".parallax-bg");
             this.initDom();
             this.initEvents();
         },
 
         initDom: function() {
             
-            var navHeight = this.$mainNav.height();
-            var heroHeight = (page.win.height() - navHeight) + 70;
+            var heroHeight = Page.$win.height();
             var heroAreaTextHeight = this.$heroAreaTextContainer.height();
 
             this.$heroArea.css("height", heroHeight);
@@ -108,11 +110,11 @@
         },
 
         initEvents: function() {
-            page.win.scroll(this.parallaxEffect.bind(this));
+            Page.$win.scroll(this.parallaxEffect.bind(this));
         },
 
         parallaxEffect: function(e) {
-            var scrolled = page.win.scrollTop();
+            var scrolled = Page.$win.scrollTop();
             this.$parallaxBackground.css("top", -(scrolled * 0.2) + "px");
         }
     };
@@ -162,6 +164,8 @@
                 startAt = $target.parents(".project-preview-image").data('image-no');
             }
 
+            var _this = this;
+
             $.ajax({
                 url: "../../wp-admin/admin-ajax.php",
                 type:'POST',
@@ -169,7 +173,7 @@
                 success: function(html){
                     
                     $("body").append(html);  
-                    Carousel.centerCarousel();
+                    _this.centerCarousel();
                     var $carousel = $(".project-section__images-carousel");
                     var $carouselOverlay = $(".project-section__images-carousel__overlay");
                     
@@ -199,7 +203,7 @@
                                 $currentImage.hide().removeClass("current");
                                 $(".carousel-images-list li").first().fadeIn(150).addClass("current");
                             }
-                            Carousel.centerCarousel();
+                            _this.centerCarousel();
                         }
                     });
 
@@ -218,7 +222,7 @@
         },
 
         centerCarousel: function() {
-            var windowHeight = page.win.outerHeight();
+            var windowHeight = Page.$win.outerHeight();
             var carousel = $(".project-section__images-carousel");
             var topValue = (windowHeight - carousel.outerHeight()) / 2;
             carousel.css("top", topValue);
@@ -266,10 +270,12 @@
     var Blog = {
 
         init: function() {
-            this.$postSubContent = $("p, .tags-list, .attachment-post-thumbnail");
-            this.$postButton = $(".blog-section__post__button");
-            this.$morePostsButton = $(".more-posts-btn");
-            this.$loadingSpinner = $(".ajax-spinner");
+            this.$blogPost = $(".blog-section__post");
+            this.$postSubContent = this.$blogPost.find("p, .tags-list, .attachment-post-thumbnail");
+            this.$postButton = this.$blogPost.find(".blog-section__post__button");
+            this.$morePostsSection = $(".blog-section__more-posts");
+            this.$morePostsButton = this.$morePostsSection.find(".more-posts-btn");
+            this.$loadingSpinner = this.$morePostsSection.find(".ajax-spinner");
             this.pageNumber = 2; 
             this.initDom();
             this.initEvents();
@@ -286,7 +292,8 @@
 
         togglePostView: function(e) {
             e.preventDefault();
-            var $target = $(e.target).is("a") ? $(e.target) : $(e.target).parents(".btn");
+            var $eTarget = $(e.target);
+            var $target = $eTarget.is("a") ? $eTarget : $eTarget.parents(".btn");
             var hasDownClass = $target.children(".btn__arrow").hasClass("down");
 
             if (hasDownClass) {
@@ -309,7 +316,7 @@
         loadMorePosts: function(e) {
             e.preventDefault();
             
-            if (page.isBlog()) {
+            if (Page.isBlog) {
                 this.$morePostsButton.hide();
                 this.$loadingSpinner.fadeIn(100);
                 
@@ -360,10 +367,10 @@
         init: function() {
             this.isError = false;
             this.$form = $(".wpcf7-form");
-            this.$formNameInput = $(".contact-form__name input");
-            this.$formEmailInput = $(".contact-form__email input");
-            this.$formMessageTextarea = $(".contact-form__message textarea");
-            this.$submitButton = $(".wpcf7-submit");
+            this.$formNameInput = this.$form.find(".contact-form__name input");
+            this.$formEmailInput = this.$form.find(".contact-form__email input");
+            this.$formMessageTextarea = this.$form.find(".contact-form__message textarea");
+            this.$submitButton = this.$form.find(".wpcf7-submit");
             this.initDom();
             this.initEvents();
         },
@@ -381,7 +388,7 @@
         },
 
         validateForm: function(e) {
-            //reset error status each submit
+            //reset error status on each submit
             this.isError = false;
 
             if (this.$formNameInput.val() === undefined || this.$formNameInput.val() === "") {
@@ -423,6 +430,7 @@
     $(document).ready(function() {
 
         // all pages
+        Page.init();
         Button.init();
         Portfolio.init();
         ContactForm.init();
@@ -430,8 +438,7 @@
         Carousel.init();
         Navigation.init();
 
-        // home page
-        if (page.isHome()) {
+        if (Page.isHome) {
             HeroArea.init();
         }
     });

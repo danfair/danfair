@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_directory'); ?>/style.min.css">
     <?php wp_head(); ?>
 </head> 
-<body id="<?php echo get_option('current_page_template'); ?>">
+<body data-page-id="<?php echo get_option('current_page_template'); ?>">
     <header class="main-header">
         <nav class="max-width-wrapper main-nav">
             <a href="<?php bloginfo('wpurl'); ?>" class="df-logo">DAN FAIR</a>
