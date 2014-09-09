@@ -352,8 +352,6 @@
                 this.$morePostsButton.fadeIn(500);
                 this.pageNumber++;
             }
-
-
         },
 
         removeMorePostsButton: function() {

@@ -6,7 +6,7 @@
     <section class="hero-area">
         <div class="parallax-bg hero-bg"></div>
             <nav class="max-width-wrapper main-nav front-page-nav display-none">
-                <a href="<?php bloginfo('wpurl'); ?>"class="df-logo">DAN FAIR</a>
+                <a href="<?php bloginfo('wpurl'); ?>" class="df-logo">DAN FAIR</a>
                 <?php wp_nav_menu(); ?>
                 <ul class="main-header__social-icons-list">
                     <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>

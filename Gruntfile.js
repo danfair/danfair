@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
     uglify: {
       build: {
-        src: 'wp-content/themes/danfair_v1/js/script.js',
+        src: ['wp-content/themes/danfair_v1/js/script.js', 'wp-content/themes/danfair_v1/js/waypoints/waypoints.min.js'],
         dest: 'wp-content/themes/danfair_v1/js/global.min.js'
       }
     },

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=.95, minimum-scale=.95, maximum-scale=.95">
     <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/df_favicon.png">
     <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title( '' ); ?></title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic, 400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="<?php echo bloginfo('stylesheet_directory'); ?>/style.min.css">
     <?php wp_head(); ?>
 </head> 
