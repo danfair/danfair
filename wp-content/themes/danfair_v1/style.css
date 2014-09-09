@@ -127,6 +127,7 @@ legend {
 \*----------------------------------------*/
 body {
   height: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 h1,
@@ -221,8 +222,8 @@ input {
 }
 /* button animations */
 .bounce-down {
-  -webkit-animation: bounceDown 1s 0 ease-in-out infinite;
-  animation: bounceDown 1s 0 ease-in-out infinite;
+  -webkit-animation: bounceDown 1s ease-in-out infinite;
+  animation: bounceDown 1s ease-in-out infinite;
 }
 @-webkit-keyframes bounceDown {
   0% {
@@ -233,17 +234,6 @@ input {
   }
   100% {
     -webkit-transform: translateY(0px);
-  }
-}
-@-moz-keyframes bounceDown {
-  0% {
-    -moz-transform: translateY(0px);
-  }
-  50% {
-    -moz-transform: translateY(3px);
-  }
-  100% {
-    -moz-transform: translateY(0px);
   }
 }
 @keyframes bounceDown {
@@ -261,8 +251,8 @@ input {
   }
 }
 .bounce-up {
-  -webkit-animation: bounceUp 1s 0 ease-in-out infinite;
-  animation: bounceUp 1s 0 ease-in-out infinite;
+  -webkit-animation: bounceUp 1s ease-in-out infinite;
+  animation: bounceUp 1s ease-in-out infinite;
 }
 @-webkit-keyframes bounceUp {
   0% {
@@ -273,17 +263,6 @@ input {
   }
   100% {
     -webkit-transform: translateY(0px);
-  }
-}
-@-moz-keyframes bounceUp {
-  0% {
-    -moz-transform: translateY(0px);
-  }
-  50% {
-    -moz-transform: translateY(-3px);
-  }
-  100% {
-    -moz-transform: translateY(0px);
   }
 }
 @keyframes bounceUp {
@@ -301,8 +280,8 @@ input {
   }
 }
 .bounce-right {
-  -webkit-animation: bounceRight 1s 0 ease-in-out infinite;
-  animation: bounceRight 1s 0 ease-in-out infinite;
+  -webkit-animation: bounceRight 1s ease-in-out infinite;
+  animation: bounceRight 1s ease-in-out infinite;
 }
 @-webkit-keyframes bounceRight {
   0% {
@@ -1082,6 +1061,11 @@ footer .df-logo {
 .project-section .sidebar .btn:first-of-type {
   margin-right: 5%;
 }
+.error-section img {
+  width: 43.5%;
+  margin-left: 4.5%;
+  float: right;
+}
 /*----------------------------------------*\
     #MEDIA-QUERIES
 \*----------------------------------------*/
@@ -1260,6 +1244,7 @@ footer .df-logo {
     position: absolute;
     top: 70px;
     right: -500px;
+    z-index: 25;
   }
   .main-nav #menu-menu-1 .menu-item,
   .main-nav #menu-menu-2 .menu-item {

@@ -46,6 +46,7 @@
         },
 
         initEvents: function() {
+
             if (this.isHomePage) { 
                 this.swapHomeMenu();
                 this.$heroButton.waypoint(this.handleStickyNav.bind(this));
@@ -421,8 +422,6 @@
         if (page.isHome()) {
             HeroArea.init();
         }
-
-        
     });
 
 })(jQuery);

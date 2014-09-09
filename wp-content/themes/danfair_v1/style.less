@@ -33,9 +33,9 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
     -o-transition: @property @length;
 }
 
-.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
-    -webkit-animation: @name @duration @delay @ease;
-    animation: @name @duration @delay @ease;
+.animation (@name, @duration: 300ms, @ease: ease) {
+    -webkit-animation: @name @duration @ease;
+    animation: @name @duration @ease;
 }
 
 /* local fonts */
@@ -61,6 +61,7 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 
 body {
     height: 100%;
+    width: 100%;
     overflow-x: hidden;
 }
 
@@ -167,7 +168,7 @@ input {
 
     /* button animations */
     .bounce-down {
-        .animation(bounceDown, 1s, 0, ease-in-out infinite);
+        .animation(bounceDown, 1s, ease-in-out infinite);
     }
 
         @-webkit-keyframes bounceDown {
@@ -182,17 +183,17 @@ input {
             }
         }
 
-        @-moz-keyframes bounceDown {
-            0% {
-                -moz-transform:translateY(0px);
-            }
-            50% {
-                -moz-transform:translateY(3px);
-            }
-            100% {
-                -moz-transform:translateY(0px);
-            }
-        }
+        // @-moz-keyframes bounceDown {
+        //     0% {
+        //         -moz-transform:translateY(0px);
+        //     }
+        //     50% {
+        //         -moz-transform:translateY(3px);
+        //     }
+        //     100% {
+        //         -moz-transform:translateY(0px);
+        //     }
+        // }
 
         @keyframes bounceDown {
             0% {
@@ -210,7 +211,7 @@ input {
         }
 
     .bounce-up {
-        .animation(bounceUp, 1s, 0, ease-in-out infinite);
+        .animation(bounceUp, 1s, ease-in-out infinite);
     }
 
         @-webkit-keyframes bounceUp {
@@ -225,17 +226,17 @@ input {
             }
         }
 
-        @-moz-keyframes bounceUp {
-            0% {
-                -moz-transform:translateY(0px);
-            }
-            50% {
-                -moz-transform:translateY(-3px);
-            }
-            100% {
-                -moz-transform:translateY(0px);
-            }
-        }
+        // @-moz-keyframes bounceUp {
+        //     0% {
+        //         -moz-transform:translateY(0px);
+        //     }
+        //     50% {
+        //         -moz-transform:translateY(-3px);
+        //     }
+        //     100% {
+        //         -moz-transform:translateY(0px);
+        //     }
+        // }
 
         @keyframes bounceUp {
             0% {
@@ -253,7 +254,7 @@ input {
         }
 
     .bounce-right {
-        .animation(bounceRight, 1s, 0, ease-in-out infinite);
+        .animation(bounceRight, 1s, ease-in-out infinite);
     }
 
         @-webkit-keyframes bounceRight {
@@ -1175,7 +1176,11 @@ footer {
         margin-right: 5%;
     }
 
-
+.error-section img {
+    width: 43.5%;
+    margin-left: 4.5%;
+    float: right;
+}
 
 
 /*----------------------------------------*\
@@ -1403,6 +1408,7 @@ footer {
         position: absolute;
         top: 70px;
         right: -500px;
+        z-index: 25;
     }
 
         .main-nav #menu-menu-1 .menu-item, .main-nav #menu-menu-2 .menu-item {

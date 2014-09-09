@@ -1,4 +1,5 @@
 <?php 
+    update_option('current_page_template','search-page');  // get id for <body>
     get_header();
 ?>
     <section class="page-sub-header project-bg">

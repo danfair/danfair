@@ -1,4 +1,5 @@
 <?php 
+    update_option('current_page_template','front-page');
     get_header();
     the_post();
 ?>
