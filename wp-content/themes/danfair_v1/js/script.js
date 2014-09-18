@@ -319,6 +319,7 @@
             if (Page.isBlog) {
                 this.$morePostsButton.hide();
                 this.$loadingSpinner.fadeIn(100);
+                var _this = this;
                 
                 $.ajax({
                     url: "../wp-admin/admin-ajax.php",
@@ -331,7 +332,7 @@
                         });
                                 
                         // add event listeners for loaded post buttons
-                        $(".blog-section__post__button")
+                        _this.$morePostsButton
                             .on("click", function(e) {
                                 e.preventDefault();
                                 Blog.togglePostView(e);
@@ -344,12 +345,15 @@
                             });   
 
                         var hasLastPostSet = $(".blog-section__post").last().hasClass("last-set");
-                        console.log(hasLastPostSet);
-                        if (hasLastPostSet) { $(".more-posts-btn").remove(); }
+                        _this.$loadingSpinner.fadeOut(100);
+                        if (hasLastPostSet) { 
+                            _this.$morePostsButton.remove();
+                        } else {
+                            _this.$morePostsButton.show();
+                        }
                     }
                 });
-                this.$loadingSpinner.fadeOut(100);
-                this.$morePostsButton.fadeIn(500);
+                
                 this.pageNumber++;
             }
         },
