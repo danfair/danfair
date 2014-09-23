@@ -11,6 +11,40 @@
     
     <section class="page-content blog-section">
         <div class="content-wrapper max-width-wrapper">
+            <div class="page-content__content-left">
+                <?php
+                    $args = array(
+                        'posts_per_page' => '5',
+                        'post_type' => 'post', 
+                    );
+                    $posts = new WP_Query($args);
+                    if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); 
+                    $index = $posts->current_post + 1;
+                ?>
+                <div class="blog-section__post<?php if ($index == 1) {echo " latest-post";} ?>">
+                    <h3<?php if ($index == 1) {echo " class='blog-section__first-header'";} ?>><?php the_title(); ?></h3>
+                    <?php 
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail();
+                        };
+                        // WP only puts first date if 2+ posts are on the same day
+                        $date = get_the_date();
+                        echo "<h4 class='blog-section__post__date'>" . $date . "</h4>";
+
+                        the_content();
+                        if ($index != 1) : 
+                    ?>
+                        <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
+                    <?php endif;
+                        the_tags('<ul class="tags-list"><li class="tags-list__tag">','</li><li class="tags-list__tag">','</li></ul>');
+                    ?>
+                </div>
+                <?php endwhile; endif; wp_reset_query(); ?>
+                <div class="blog-section__more-posts">
+                    <a href="" class="btn btn--orange more-posts-btn">MORE POSTS<div class="btn__arrow black down"></div></a>
+                    <img class="ajax-spinner" src="<?php bloginfo('template_directory'); ?>/img/ajax-spinner.gif" />
+                </div>
+            </div> 
             <aside class="sidebar">
                 <div class="sidebar__search-form">
                     <h4>Search</h4>
@@ -41,40 +75,6 @@
                     ?>
                 </div>
             </aside>
-            <div class="page-content__content-left">
-                <?php
-                    $args = array(
-                        'posts_per_page' => '5',
-                        'post_type' => 'post', 
-                    );
-                    $posts = new WP_Query($args);
-                    if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); 
-                    $index = $posts->current_post + 1;
-                ?>
-                <div class="blog-section__post<?php if ($index == 1) {echo " latest-post";} ?>">
-                    <h3<?php if ($index == 1) {echo " class='blog-section__first-header'";} ?>><?php the_title(); ?></h3>
-                    <?php 
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail();
-                        };
-                        // WP only puts first date if 2+ posts are on the same day
-                        $date = get_the_date();
-                        echo "<h4 class='blog-section__post__date'>" . $date . "</h4>";
-
-                        the_content();
-                        if ($index != 1) : 
-                    ?>
-                        <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
-                    <?php endif;
-                        the_tags('<ul class="tags-list"><li class="tags-list__tag">','</li><li class="tags-list__tag">','</li></ul>');
-                    ?>
-                </div>
-                <?php endwhile; endif; wp_reset_query(); ?>
-            </div> 
-            <div class="blog-section__more-posts">
-                <a href="" class="btn btn--orange more-posts-btn">MORE POSTS<div class="btn__arrow black down"></div></a>
-                <img class="ajax-spinner" src="<?php bloginfo('template_directory'); ?>/img/ajax-spinner.gif" />
-            </div>
         </div>
     </section>
 <?php get_footer(); ?>
