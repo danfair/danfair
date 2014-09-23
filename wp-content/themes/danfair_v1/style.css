@@ -938,6 +938,9 @@ footer .df-logo {
   display: none;
   text-align: center;
 }
+.more-posts-btn {
+  margin-top: 28px;
+}
 .project-images-list {
   overflow: auto;
 }
