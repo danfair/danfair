@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.95, minimum-scale=.95, maximum-scale=.95">
+    <link rel="icon" type="image/png" href="http://www.danfair.com/wp-content/themes/danfair_v1/img/df_favicon.png">
+    <title>Dan Fair | Front End Developer</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://www.danfair.com/wp-content/themes/danfair_v1/style.min.css">
+    <link rel="alternate" type="application/rss+xml" title="Dan Fair &raquo; Portfolio Comments Feed" href="http://www.danfair.com/home/feed/" />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.9.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.danfair.com/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+<script type='text/javascript' src='http://www.danfair.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/themes/danfair_v1/js/global.min.js?ver=3.9.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.danfair.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.danfair.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='next' title='Contact' href='http://www.danfair.com/contact/' />
+<meta name="generator" content="WordPress 3.9.2" />
+<link rel='canonical' href='http://www.danfair.com/' />
+<link rel='shortlink' href='http://www.danfair.com/' />
+</head> 
+<body data-page-id="front-page">
+    <header class="main-header">
+        <nav class="max-width-wrapper main-nav">
+            <a href="http://www.danfair.com" class="df-logo">DAN FAIR</a>
+            <ul class="main-header__social-icons-list">
+                <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>
+                <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
+                <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
+            </ul>
+            <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-53"><a href="http://www.danfair.com/#portfolio">Portfolio</a></li>
+<li id="menu-item-69" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-69"><a href="http://www.danfair.com/blog/">Blog</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="http://www.danfair.com/about/">About</a></li>
+<li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="http://www.danfair.com/contact/">Contact</a></li>
+</ul></div>            <a class="main-nav__mobile-menu"></a>
+        </nav>  
+    </header>
+        <section class="hero-area">
+        <div class="parallax-bg hero-bg"></div>
+            <nav class="max-width-wrapper main-nav front-page-nav display-none">
+                <a href="http://www.danfair.com" class="df-logo">DAN FAIR</a>
+                <div class="menu-menu-1-container"><ul id="menu-menu-2" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-53"><a href="http://www.danfair.com/#portfolio">Portfolio</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-69"><a href="http://www.danfair.com/blog/">Blog</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="http://www.danfair.com/about/">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="http://www.danfair.com/contact/">Contact</a></li>
+</ul></div>                <ul class="main-header__social-icons-list">
+                    <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>
+                    <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
+                    <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
+                </ul>
+                <a class="main-nav__mobile-menu"></a>
+            </nav> 
+            <div class="hero-area__text-container">
+                <h1 class="white-text">DAN FAIR</h1>
+                <p>I’m a Front End Developer with experience building websites using HTML, CSS, JavaScript, and PHP</p>
+                <a href="#portfolio-section" class="btn btn--orange-white see-work-button">See my work<div class="btn__arrow white down bounce-down"></div></a>
+            </div>
+
+    </section><!-- end of hero-area -->
+    <span id="portfolio"></span>
+    <section id="portfolio-section" class="portfolio">
+        <div class="portfolio__header-wrapper">
+            <h2 class="max-width-wrapper">PORTFOLIO</h2>
+        </div>
+                <div class="portfolio__project">
+            <div class="max-width-wrapper">
+                <h3>IABG Conference website</h3>
+                <div class="portfolio__project__thumbnail">
+                    <img width="474" height="321" src="http://www.danfair.com/wp-content/uploads/2014/08/iabg_macbook.png" class="attachment-post-thumbnail wp-post-image" alt="IABG conference website" />                </div>
+                <div class="portfolio__project__text">
+                    <ul class='tags-list'><li class='tags-list__tag'>CSS</li><li class='tags-list__tag'>HTML</li><li class='tags-list__tag'>jQuery</li><li class='tags-list__tag'>PHP</li><li class='tags-list__tag'>WordPress</li></ul><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="portfolio__project__buttons">
+                        <a href="http://www.danfair.com/projects/iabg-conference-website/" class="btn btn--orange portfolio__project__summary-link">See project summary<div class="btn__arrow black right"></div></a>
+                        <a href="https://github.com/danfair/iabg_conf" class="btn btn--orange portfolio__project__github-link">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+                <div class="portfolio__project">
+            <div class="max-width-wrapper">
+                <h3>LinkedIn Profile Redesign/Build</h3>
+                <div class="portfolio__project__thumbnail">
+                    <img width="561" height="330" src="http://www.danfair.com/wp-content/uploads/2014/08/linked_in_macbook.png" class="attachment-post-thumbnail wp-post-image" alt="LinkedIn redesign" />                </div>
+                <div class="portfolio__project__text">
+                    <ul class='tags-list'><li class='tags-list__tag'>CSS</li><li class='tags-list__tag'>HTML</li><li class='tags-list__tag'>JavaScript</li><li class='tags-list__tag'>jQuery</li></ul><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="portfolio__project__buttons">
+                        <a href="http://www.danfair.com/projects/linkedin-profile-redesignbuild/" class="btn btn--orange portfolio__project__summary-link">See project summary<div class="btn__arrow black right"></div></a>
+                        <a href="https://github.com/danfair/LinkedIn-profile-redesign" class="btn btn--orange portfolio__project__github-link">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+            </section><!-- end of portfolio section -->
+<footer>
+    <div id="footer-text-wrapper" class="max-width-wrapper">
+        <a href="http://www.danfair.com" class="df-logo">DAN FAIR</a>
+        <ul class="main-header__social-icons-list">
+            <li><a href="http://www.danfair.com/contact" class="social-icon contact"></a></li>
+            <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>
+            <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
+            <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
+        </ul>
+    </div>
+</footer>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.danfair.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.9.1'></script>
+<!--<script src="http://www.danfair.com/wp-content/themes/danfair_v1/js/waypoints/waypoints.js"></script>-->
+<!--<script src="http://www.danfair.com/wp-content/themes/danfair_v1/js/live/live.js"></script>-->
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+Page Caching using disk: enhanced
+
+ Served from: www.danfair.com @ 2014-09-10 00:13:02 by W3 Total Cache -->

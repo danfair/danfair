@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.95, minimum-scale=.95, maximum-scale=.95">
+    <link rel="icon" type="image/png" href="http://www.danfair.com/wp-content/themes/danfair_v1/img/df_favicon.png">
+    <title>Dan Fair |   Blog</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://www.danfair.com/wp-content/themes/danfair_v1/style.min.css">
+    <link rel="alternate" type="application/rss+xml" title="Dan Fair &raquo; Blog Comments Feed" href="http://www.danfair.com/blog/feed/" />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.9.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.danfair.com/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+<script type='text/javascript' src='http://www.danfair.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/themes/danfair_v1/js/global.min.js?ver=3.9.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.danfair.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.danfair.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='About' href='http://www.danfair.com/about/' />
+<meta name="generator" content="WordPress 3.9.2" />
+<link rel='canonical' href='http://www.danfair.com/blog/' />
+<link rel='shortlink' href='http://www.danfair.com/?p=54' />
+</head> 
+<body data-page-id="blog-page">
+    <header class="main-header">
+        <nav class="max-width-wrapper main-nav">
+            <a href="http://www.danfair.com" class="df-logo">DAN FAIR</a>
+            <ul class="main-header__social-icons-list">
+                <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>
+                <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
+                <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
+            </ul>
+            <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-53"><a href="http://www.danfair.com/#portfolio">Portfolio</a></li>
+<li id="menu-item-69" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-54 current_page_item menu-item-69"><a href="http://www.danfair.com/blog/">Blog</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="http://www.danfair.com/about/">About</a></li>
+<li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="http://www.danfair.com/contact/">Contact</a></li>
+</ul></div>            <a class="main-nav__mobile-menu"></a>
+        </nav>  
+    </header>
+        <section class="page-sub-header blog-bg">
+        <div class="page-sub-header__text max-width-wrapper">
+            <h1>Blog</h1>
+        </div>
+    </section>
+    
+    <section class="page-content blog-section">
+        <div class="content-wrapper max-width-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar__search-form">
+                    <h4>Search</h4>
+                    <form method="get" id="searchform" class="sidebar__search-form" action="http://www.danfair.com/">
+    <label class="hidden" for="s">Search:</label>
+    <input type="text" value="" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="GO" />
+</form>                </div>
+                <div class="sidebar__categories">
+                    <h4>Popular categories</h4>
+                    <ul class='wp-tag-cloud'>
+	<li><a href='http://www.danfair.com/tag/html/' class='tag-link-4' title='3 topics' style='font-size: 10px;'>HTML</a></li>
+	<li><a href='http://www.danfair.com/tag/api/' class='tag-link-12' title='1 topic' style='font-size: 10px;'>api</a></li>
+	<li><a href='http://www.danfair.com/tag/javascript/' class='tag-link-8' title='2 topics' style='font-size: 10px;'>JavaScript</a></li>
+	<li><a href='http://www.danfair.com/tag/json/' class='tag-link-11' title='2 topics' style='font-size: 10px;'>json</a></li>
+	<li><a href='http://www.danfair.com/tag/css/' class='tag-link-5' title='3 topics' style='font-size: 10px;'>CSS</a></li>
+	<li><a href='http://www.danfair.com/tag/wordpress/' class='tag-link-6' title='4 topics' style='font-size: 10px;'>WordPress</a></li>
+	<li><a href='http://www.danfair.com/tag/angularjs/' class='tag-link-9' title='1 topic' style='font-size: 10px;'>angularjs</a></li>
+	<li><a href='http://www.danfair.com/tag/php/' class='tag-link-3' title='2 topics' style='font-size: 10px;'>PHP</a></li>
+	<li><a href='http://www.danfair.com/tag/jquery/' class='tag-link-7' title='4 topics' style='font-size: 10px;'>jQuery</a></li>
+	<li><a href='http://www.danfair.com/tag/ajax/' class='tag-link-10' title='1 topic' style='font-size: 10px;'>ajax</a></li>
+</ul>
+                </div>
+            </aside>
+            <div class="page-content__content-left">
+                                <div class="blog-section__post latest-post">
+                    <h3 class='blog-section__first-header'>How about one more</h3>
+                    <img width="300" height="300" src="http://www.danfair.com/wp-content/uploads/2014/08/Photo-Jan-25-1-45-46-PM-e1409351426270.jpg" class="attachment-post-thumbnail wp-post-image" alt="Photo Jan 25, 1 45 46 PM" /><h4 class='blog-section__post__date'>August 29, 2014</h4><p>For good luck. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<ul class="tags-list"><li class="tags-list__tag"><a href="http://www.danfair.com/tag/jquery/" rel="tag">jQuery</a></li><li class="tags-list__tag"><a href="http://www.danfair.com/tag/wordpress/" rel="tag">WordPress</a></li></ul>                </div>
+                                <div class="blog-section__post">
+                    <h3>Building sites is fun</h3>
+                    <h4 class='blog-section__post__date'>August 29, 2014</h4><p>qdfadsf adsfasd fasd fLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
+                    <ul class="tags-list"><li class="tags-list__tag"><a href="http://www.danfair.com/tag/api/" rel="tag">api</a></li><li class="tags-list__tag"><a href="http://www.danfair.com/tag/json/" rel="tag">json</a></li></ul>                </div>
+                                <div class="blog-section__post">
+                    <h3>Hey! What&#8217;s up</h3>
+                    <img width="300" height="300" src="http://www.danfair.com/wp-content/uploads/2014/08/IMAG0199-e1409357077424.jpg" class="attachment-post-thumbnail wp-post-image" alt="IMAG0199" /><h4 class='blog-section__post__date'>August 29, 2014</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
+                    <ul class="tags-list"><li class="tags-list__tag"><a href="http://www.danfair.com/tag/php/" rel="tag">PHP</a></li><li class="tags-list__tag"><a href="http://www.danfair.com/tag/wordpress/" rel="tag">WordPress</a></li></ul>                </div>
+                                <div class="blog-section__post">
+                    <h3>Dummy post here</h3>
+                    <h4 class='blog-section__post__date'>August 29, 2014</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
+                    <ul class="tags-list"><li class="tags-list__tag"><a href="http://www.danfair.com/tag/ajax/" rel="tag">ajax</a></li><li class="tags-list__tag"><a href="http://www.danfair.com/tag/json/" rel="tag">json</a></li></ul>                </div>
+                                <div class="blog-section__post">
+                    <h3>Third blog post</h3>
+                    <h4 class='blog-section__post__date'>August 29, 2014</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="btn btn--orange blog-section__post__button">See more<div class="btn__arrow black down"></div></a>
+                    <ul class="tags-list"><li class="tags-list__tag"><a href="http://www.danfair.com/tag/angularjs/" rel="tag">angularjs</a></li></ul>                </div>
+                            </div> 
+            <div class="blog-section__more-posts">
+                <a href="" class="btn btn--orange more-posts-btn">MORE POSTS<div class="btn__arrow black down"></div></a>
+                <img class="ajax-spinner" src="http://www.danfair.com/wp-content/themes/danfair_v1/img/ajax-spinner.gif" />
+            </div>
+        </div>
+    </section>
+<footer>
+    <div id="footer-text-wrapper" class="max-width-wrapper">
+        <a href="http://www.danfair.com" class="df-logo">DAN FAIR</a>
+        <ul class="main-header__social-icons-list">
+            <li><a href="http://www.danfair.com/contact" class="social-icon contact"></a></li>
+            <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>
+            <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
+            <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
+        </ul>
+    </div>
+</footer>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.danfair.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.9.1'></script>
+<!--<script src="http://www.danfair.com/wp-content/themes/danfair_v1/js/waypoints/waypoints.js"></script>-->
+<!--<script src="http://www.danfair.com/wp-content/themes/danfair_v1/js/live/live.js"></script>-->
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+Page Caching using disk: enhanced
+
+ Served from: www.danfair.com @ 2014-09-10 00:15:44 by W3 Total Cache -->

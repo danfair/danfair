@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.95, minimum-scale=.95, maximum-scale=.95">
+    <link rel="icon" type="image/png" href="http://www.danfair.com/wp-content/themes/danfair_v1/img/df_favicon.png">
+    <title>Dan Fair |   Contact</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://www.danfair.com/wp-content/themes/danfair_v1/style.min.css">
+    <link rel="alternate" type="application/rss+xml" title="Dan Fair &raquo; Contact Comments Feed" href="http://www.danfair.com/contact/feed/" />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.9.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.danfair.com/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+<script type='text/javascript' src='http://www.danfair.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/themes/danfair_v1/js/global.min.js?ver=3.9.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.danfair.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.danfair.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Portfolio' href='http://www.danfair.com/' />
+<link rel='next' title='About' href='http://www.danfair.com/about/' />
+<meta name="generator" content="WordPress 3.9.2" />
+<link rel='canonical' href='http://www.danfair.com/contact/' />
+<link rel='shortlink' href='http://www.danfair.com/?p=10' />
+</head> 
+<body data-page-id="contact-page">
+    <header class="main-header">
+        <nav class="max-width-wrapper main-nav">
+            <a href="http://www.danfair.com" class="df-logo">DAN FAIR</a>
+            <ul class="main-header__social-icons-list">
+                <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>
+                <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
+                <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
+            </ul>
+            <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-53"><a href="http://www.danfair.com/#portfolio">Portfolio</a></li>
+<li id="menu-item-69" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-69"><a href="http://www.danfair.com/blog/">Blog</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="http://www.danfair.com/about/">About</a></li>
+<li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-10 current_page_item menu-item-23"><a href="http://www.danfair.com/contact/">Contact</a></li>
+</ul></div>            <a class="main-nav__mobile-menu"></a>
+        </nav>  
+    </header>
+        <section class="page-sub-header contact-bg">
+        <div class="page-sub-header__text max-width-wrapper">
+            <h1>Contact</h1>
+        </div>
+    </section>
+    <section class="page-content contact-section">
+        <div class="content-wrapper max-width-wrapper">
+            <h2>I'd love to hear from you!</h2>
+            <div class="wpcf7" id="wpcf7-f4-p10-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form name="" action="/contact/#wpcf7-f4-p10-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="4" />
+<input type="hidden" name="_wpcf7_version" value="3.9.1" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f4-p10-o1" />
+<input type="hidden" name="_wpnonce" value="5199255e1b" />
+</div>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<div class="contact-form__name">
+<h3>Name</h3>
+<p>
+    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span> </div>
+<div class="contact-form__email">
+<h3>Email address</h3>
+<p>
+    <span class="wpcf7-form-control-wrap your-email"><input type="text" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span> </div>
+<div class="contact-form__message">
+<h3>Message</h3>
+<p>
+    <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </div>
+<div class="contact-form__submit"><input type="submit" value="Send message" class="wpcf7-form-control wpcf7-submit" /></div>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
+            <aside class="sidebar sidebar--contact">
+                <div class="sidebar__email-section">
+                    <h4>Email</h4>
+                    <p><a href="mailto:fair.dan@gmail.com">fair.dan@gmail.com</a></p>
+                </div>
+                <div class="sidebar__phone-section">
+                    <h4>Phone</h4>
+                    <p><a href="tel:1-773-494-9100">773-494-9100</a></p>
+                </div>
+                <div class="sidebar__on-the-web">
+                    <h4>On the web</h4>
+                    <p><a href="http://www.twitter.com/sdanfair">Twitter</a></p>
+                    <p><a href="http://www.github.com/danfair">GitHub</a></p>
+                    <p><a href="http://www.linkedin.com/in/danfair">LinkedIn</a></p>
+                </div>
+            </aside>
+        </div>
+    </section>
+<footer>
+    <div id="footer-text-wrapper" class="max-width-wrapper">
+        <a href="http://www.danfair.com" class="df-logo">DAN FAIR</a>
+        <ul class="main-header__social-icons-list">
+            <li><a href="http://www.danfair.com/contact" class="social-icon contact"></a></li>
+            <li><a href="http://www.linkedin.com/in/danfair" class="social-icon linkedin"></a></li>
+            <li><a href="http://www.twitter.com/sdanfair" class="social-icon twitter"></a></li>
+            <li><a href="http://www.github.com/danfair" class="social-icon github"></a></li>
+        </ul>
+    </div>
+</footer>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.danfair.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.danfair.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.9.1'></script>
+<!--<script src="http://www.danfair.com/wp-content/themes/danfair_v1/js/waypoints/waypoints.js"></script>-->
+<!--<script src="http://www.danfair.com/wp-content/themes/danfair_v1/js/live/live.js"></script>-->
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+Page Caching using disk: enhanced
+
+ Served from: www.danfair.com @ 2014-09-10 00:23:42 by W3 Total Cache -->

@@ -29,11 +29,11 @@
             <aside class="sidebar">
                 <img src="<?php echo bloginfo('stylesheet_directory'); ?>/img/headshot.jpg" alt="Dan Fair" class="about-section__headshot">
                 <div class="about-section__quick-facts">
-                    <h4>Quick facts</h4>
-                    <p>Semi-interesting fact about me</p>
-                    <p>Semi-interesting fact about me</p>
-                    <p>Semi-interesting fact about me</p>
-                    <p>Semi-interesting fact about me</p>
+                    <h4>Fun facts</h4>
+                    <p>I am a Hoosier!</p>
+                    <p>My initials are next to each other on the keyboard (SDF)</p>
+                    <p>My first computer was a Packard Bell with 4MB RAM, double the then-standard!</p>
+                    <p>I’ve been to Australia, Cambodia, Czech Republic, Germany, Russia, and Thailand</p>
                     <a href="<?php bloginfo('wpurl') ?>/contact" class="btn btn--orange">Contact me<div class="btn__arrow black right"></div></a>
                 </div>
             </aside>
