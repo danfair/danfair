@@ -1225,6 +1225,9 @@ footer .df-logo {
     display: inline;
     max-width: 50%;
   }
+  .about-section__quick-facts {
+    overflow: auto;
+  }
 }
 @media (max-width: 600px) {
   h1 {
