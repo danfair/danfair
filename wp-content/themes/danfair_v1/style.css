@@ -602,6 +602,7 @@ footer .df-logo {
   text-align: center;
   min-height: 500px;
   position: relative;
+  overflow: hidden;
 }
 .hero-area .hero-bg {
   background: #222222 url(img/hero_bg.jpg) no-repeat;
@@ -610,6 +611,7 @@ footer .df-logo {
   width: 100%;
   height: 110%;
   z-index: -1;
+  overflow: hidden;
 }
 .contact-bg {
   background: url(img/chicago_skyline.jpg) no-repeat 0% 100%;

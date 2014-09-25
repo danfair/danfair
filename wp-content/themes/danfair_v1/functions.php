@@ -12,7 +12,9 @@
         wp_enqueue_script(
             'custom-script',
             get_stylesheet_directory_uri() . '/js/global.min.js',
-            array( 'jquery' )
+            array( 'jquery' ),
+            false,
+            true
         );
     }
 
