@@ -27,10 +27,8 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 /* mixins */
 
 .transition(@property, @length) {
-    -webkit-transition: @property @length;  
-    -moz-transition: @property @length;
-    -ms-transition: @property @length; 
-    -o-transition: @property @length;
+    -webkit-transition: @property @length;
+    transition: @property @length;
 }
 
 .animation (@name, @duration: 300ms, @ease: ease) {
@@ -111,7 +109,7 @@ p {
 a {
     color: darken(@orange, 10%);
     text-decoration: none;
-    .transition(color, .5s);
+    .transition(all, .5s);
     font-family: 'Open Sans', 'Times New Roman', serif;
 }
 

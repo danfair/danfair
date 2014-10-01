@@ -176,10 +176,8 @@ p + h5 {
 a {
   color: #cc5200;
   text-decoration: none;
-  -webkit-transition: color 0.5s;
-  -moz-transition: color 0.5s;
-  -ms-transition: color 0.5s;
-  -o-transition: color 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   font-family: 'Open Sans', 'Times New Roman', serif;
 }
 a:hover {
@@ -518,9 +516,7 @@ li.tags-list__tag {
 .tags-list__tag a {
   color: white;
   -webkit-transition: color 0.5s;
-  -moz-transition: color 0.5s;
-  -ms-transition: color 0.5s;
-  -o-transition: color 0.5s;
+  transition: color 0.5s;
   text-decoration: none;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 10px;
@@ -570,9 +566,7 @@ footer .df-logo {
   width: 100%;
   padding-left: 5px;
   -webkit-transition: box-shadow 0.5s;
-  -moz-transition: box-shadow 0.5s;
-  -ms-transition: box-shadow 0.5s;
-  -o-transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s;
   margin-bottom: 15px;
 }
 .sidebar__search-form input[type=text]:focus {
@@ -722,9 +716,7 @@ footer .df-logo {
 .wpcf7 textarea {
   padding-left: 5px;
   -webkit-transition: box-shadow 0.5s;
-  -moz-transition: box-shadow 0.5s;
-  -ms-transition: box-shadow 0.5s;
-  -o-transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s;
   border: 0;
 }
 .wpcf7 input:focus:not([type=submit]),
@@ -761,9 +753,7 @@ footer .df-logo {
   /* default space for arrow, fix to exact spacing in JS */
   font-family: 'Montserrat', 'Times New Roman', serif;
   -webkit-transition: color 0.5s;
-  -moz-transition: color 0.5s;
-  -ms-transition: color 0.5s;
-  -o-transition: color 0.5s;
+  transition: color 0.5s;
   float: right;
   margin-top: 13px;
   cursor: pointer;

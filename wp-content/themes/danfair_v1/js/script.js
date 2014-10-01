@@ -132,9 +132,16 @@
         },
 
         sizeProjectImages: function() {
-            var projectTextHeight = this.$projectText.height();
+            // this.$projectText.each(function(index) {
+            //     var projectTextHeight = this.height();
+
+            // });
+            // console.log("firing");
+            
             this.$projectText.each(function() {
-                $(this).siblings().find(".attachment-post-thumbnail").css("max-height", projectTextHeight);
+                var $textArea = $(this);
+                // var projectTextHeight = $(this).height();
+                $textArea.siblings().find(".attachment-post-thumbnail").css("max-height", $textArea.height());
             });
         }
 
@@ -332,7 +339,7 @@
                         });
                                 
                         // add event listeners for loaded post buttons
-                        _this.$morePostsButton
+                        $(".blog-section__post__button")
                             .on("click", function(e) {
                                 e.preventDefault();
                                 Blog.togglePostView(e);
