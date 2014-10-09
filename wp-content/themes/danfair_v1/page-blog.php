@@ -20,6 +20,7 @@
                     $posts = new WP_Query($args);
                     if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); 
                     $index = $posts->current_post + 1;
+                    $maxPages = $posts->max_num_pages;
                 ?>
                 <div class="blog-section__post<?php if ($index == 1) {echo " latest-post";} ?>">
                     <h3<?php if ($index == 1) {echo " class='blog-section__first-header'";} ?>><?php the_title(); ?></h3>
@@ -40,10 +41,12 @@
                     ?>
                 </div>
                 <?php endwhile; endif; wp_reset_query(); ?>
-                <div class="blog-section__more-posts">
-                    <a href="" class="btn btn--orange more-posts-btn">MORE POSTS<div class="btn__arrow black down"></div></a>
-                    <img class="ajax-spinner" src="<?php bloginfo('template_directory'); ?>/img/ajax-spinner.gif" />
-                </div>
+                <?php if ($maxPages > 1) : ?>
+                    <div class="blog-section__more-posts">
+                        <a href="" class="btn btn--orange more-posts-btn">MORE POSTS<div class="btn__arrow black down"></div></a>
+                        <img class="ajax-spinner" src="<?php bloginfo('template_directory'); ?>/img/ajax-spinner.gif" />
+                    </div>
+                <?php endif; ?>
             </div> 
             <aside class="sidebar">
                 <div class="sidebar__search-form">

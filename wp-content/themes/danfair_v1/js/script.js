@@ -80,7 +80,6 @@
 
         toggleMobileMenu: function(e) {
             e.preventDefault();
-            console.log("fired");
             if (this.$mobileMenu.siblings(".main-header__social-icons-list").hasClass("menu-slide-in")) {
                 $("#menu-menu-1, #menu-menu-2, .main-header__social-icons-list").removeClass("menu-slide-in").addClass("menu-slide-out");
             } else {
@@ -132,16 +131,11 @@
         },
 
         sizeProjectImages: function() {
-            // this.$projectText.each(function(index) {
-            //     var projectTextHeight = this.height();
-
-            // });
-            // console.log("firing");
             
             this.$projectText.each(function() {
                 var $textArea = $(this);
                 // var projectTextHeight = $(this).height();
-                $textArea.siblings().find(".attachment-post-thumbnail").css("max-height", $textArea.height());
+                $textArea.siblings().find(".wp-post-image").css("max-height", $textArea.height());
             });
         }
 
@@ -237,7 +231,7 @@
 
     };
 
-    var Button = {
+    var Buttons = {
 
         init: function() {
             this.$button = $(".btn");
@@ -278,7 +272,7 @@
 
         init: function() {
             this.$blogPost = $(".blog-section__post");
-            this.$postSubContent = this.$blogPost.find("p, .tags-list, .attachment-post-thumbnail");
+            this.$postSubContent = this.$blogPost.find("p, .tags-list, .attachment-post-thumbnail, ul");
             this.$postButton = this.$blogPost.find(".blog-section__post__button");
             this.$morePostsSection = $(".blog-section__more-posts");
             this.$morePostsButton = this.$morePostsSection.find(".more-posts-btn");
@@ -305,17 +299,17 @@
 
             if (hasDownClass) {
                 $target.html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up");
-                $target.siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail").fadeIn(200, function() {
-                    $target.siblings("p, .tags-list, .attachment-post-thumbnail").removeClass("close").addClass("open");
+                $target.siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail, ul").fadeIn(200, function() {
+                    $target.siblings("p, .tags-list, .attachment-post-thumbnail, ul").removeClass("close").addClass("open");
                 });
-                $target.addClass("btn--right");
+                $target.addClass("btn--right close-btn");
             } else {
                 $target.html('See more<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("down");
 
-                $target.siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail").fadeOut(200, function() {
-                    $target.siblings("p, .tags-list, .attachment-post-thumbnail").removeClass("open").addClass("close");
+                $target.siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail, ul").fadeOut(200, function() {
+                    $target.siblings("p, .tags-list, .attachment-post-thumbnail, ul").removeClass("open").addClass("close");
                 });
-                $target.removeClass("btn--right");
+                $target.removeClass("btn--right, close-btn");
                 $target.parents(".blog-section__post .open").removeClass("open").addClass("close");
             }
         },
@@ -345,9 +339,9 @@
                                 Blog.togglePostView(e);
                             })
                             .hover(function(e) {
-                                Button.animateButton(e);
+                                Buttons.animateButton(e);
                             }, function(e) {
-                                Button.stopAnimateButton(e);
+                                Buttons.stopAnimateButton(e);
 
                             });   
 
@@ -440,7 +434,7 @@
 
         // all pages
         Page.init();
-        Button.init();
+        Buttons.init();
         Portfolio.init();
         ContactForm.init();
         Blog.init();

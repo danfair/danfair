@@ -40,7 +40,7 @@
                 <h3><?php the_title(); ?></h3>
                 <div class="portfolio__project__thumbnail">
                     <?php if (has_post_thumbnail()) {
-                        the_post_thumbnail();
+                        the_post_thumbnail('large');
                     } ?>
                 </div>
                 <div class="portfolio__project__text">

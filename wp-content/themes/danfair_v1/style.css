@@ -888,10 +888,19 @@ footer .df-logo {
 .blog-section__post h3 {
   margin-top: 0;
 }
+.blog-section__post ul:not(.tags-list) {
+  list-style: disc;
+  margin-left: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
 /* initial collapse of blog posts */
 .blog-section__post:not(.latest-post) p.close:not(:nth-of-type(1)),
 .blog-section__post:not(.latest-post) .tags-list.close,
 .blog-section__post:not(.latest-post) .attachment-post-thumbnail.close {
+  display: none;
+}
+.blog-section__post:not(.latest-post) ul.close {
   display: none;
 }
 .blog-section__post:not(.latest-post) p.close:nth-of-type(1) {
@@ -913,6 +922,9 @@ footer .df-logo {
   float: left;
   width: 65%;
   margin-bottom: 0;
+}
+.blog-section__post p:last-of-type {
+  margin-bottom: 50px;
 }
 .blog-section .page-content__content-left {
   position: relative;
@@ -1208,14 +1220,19 @@ footer .df-logo {
   .blog-section__post .btn {
     position: relative;
     clear: both;
-    bottom: 0;
-    float: right;
     margin-right: 4.5%;
+    bottom: 0;
+  }
+  .blog-section__post .btn.close-btn {
+    bottom: 28px;
+  }
+  .blog-section__post .btn.more-btn {
+    bottom: 0;
   }
   .blog-section__post .tags-list {
     text-align: left;
     display: inline;
-    max-width: 50%;
+    max-width: 100%;
   }
   .about-section__quick-facts {
     overflow: auto;
