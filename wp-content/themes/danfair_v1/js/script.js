@@ -301,7 +301,7 @@
                 $target.html('Close<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("btn__arrow--flip up");
                 $target.siblings("p:not(:first-of-type), .tags-list, .attachment-post-thumbnail, ul").fadeIn(200, function() {
                     $target.siblings("p, .tags-list, .attachment-post-thumbnail, ul").removeClass("close").addClass("open");
-                });
+                }).css("display", "block");
                 $target.addClass("btn--right close-btn");
             } else {
                 $target.html('See more<div class="btn__arrow black"></div>').children(".btn__arrow").addClass("down");
