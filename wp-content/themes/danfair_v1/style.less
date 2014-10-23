@@ -561,6 +561,7 @@ footer {
 .sidebar {
     width: 30.333%;
     float: right;
+    text-align: center;
 }
     
     .sidebar h4:not(:first-of-type) {
@@ -568,6 +569,7 @@ footer {
     }
 
     .sidebar .btn {
+        display: inline-block;
         margin-top: 16px;
     }
 
@@ -651,7 +653,7 @@ footer {
     }
 
     .about-bg {
-        background: url(img/mountain_clouds.jpg) no-repeat 0% 100%;
+        background: url(img/beach_bg.jpg) no-repeat 50% 50%;
         z-index: -1;
         background-size: cover;
     }
@@ -724,6 +726,15 @@ footer {
 
         .portfolio__project__text p {
             margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+            .portfolio__project__text p:first-of-type {
+                margin-top: 0;
+            }
+
+        .portfolio__project__text .tags-list li {
+            display: inline-block;
             margin-bottom: 15px;
         }
 
@@ -1209,11 +1220,17 @@ footer {
 
 
 
+@media (min-width: 1275px) {
+    .project-section .sidebar br {
+        display: none;
+    }
+}
+
 @media (max-width: 1275px) {
 
     .project-section .sidebar .btn, .project-section .sidebar .btn:first-of-type {
-        display: block;
-        margin: 16px auto 16px;
+        // display: block;
+        margin: 16px auto 0;
     }
 
 }
@@ -1361,26 +1378,29 @@ footer {
     .project-section .sidebar {
         text-align: center;
     }
+        .project-section .sidebar br {
+            display: none;
+        }
 
-    .project-section .sidebar .btn, .project-section .sidebar .btn:first-of-type:not(.project-preview-image) {
-        margin: 0 4.5% 16px;
-        display: inline-block;
-    }
+        .project-section .sidebar .btn, .project-section .sidebar .btn:first-of-type:not(.project-preview-image) {
+            margin: 0 4.5% 16px;
+            display: inline-block;
+        }
 
-    .project-images-list {
-        margin-bottom: 4.5%;
-    }
+        .project-images-list {
+            margin-bottom: 4.5%;
+        }
 
-    .project-images-list li:not(:first-child) {
-        max-height: 120px;
-    }
+        .project-images-list li:not(:first-child) {
+            max-height: 120px;
+        }
 
-    .carousel-exit {
-        right: 7.5px;
-        top: 7.5px;
-        height: 15px;
-        width: 15px;
-    }
+        .carousel-exit {
+            right: 7.5px;
+            top: 7.5px;
+            height: 15px;
+            width: 15px;
+        }
 
     .blog-section__post:not(.latest-post) p.close:first-of-type {
         float: none;
@@ -1603,6 +1623,10 @@ footer {
         width: 175px;
         display: block;
         margin: 0 auto 15px;
+    }
+
+    .project-section .sidebar br {
+        display: block;
     }
 
 

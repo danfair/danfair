@@ -35,8 +35,8 @@
                     echo '</ul>';
                 } ?>
 
-                <a href="<?php the_field('live-project-link') ?>" class="btn btn--orange">See live project<div class="btn__arrow black right"></div></a>
-                    <a href="<?php the_field('github-link'); ?>" class="btn btn--orange">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
+                <a href="<?php the_field('live-project-link') ?>" class="btn btn--orange">See live project<div class="btn__arrow black right"></div></a><br>
+                <a href="<?php the_field('github-link'); ?>" class="btn btn--orange">View on GitHub<div class="btn__arrow btn__github-logo"></div></a>
             </aside>
             <div class="page-content__content-left">  
                 <?php the_field('project-summary'); ?>
